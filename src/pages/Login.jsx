@@ -11,14 +11,7 @@ import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 
 const Login = () => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+  
 
   return (
     <Container component="main" maxWidth="lg">
@@ -31,25 +24,21 @@ const Login = () => {
           <CssBaseline />
           <Grid
             item
-            xs={false}
-            sm={4}
-            md={7}
-            sx={{
-              backgroundImage: "url(https://source.unsplash.com/random)",
-              backgroundRepeat: "no-repeat",
-              backgroundColor: (t) =>
-                t.palette.mode === "light"
-                  ? t.palette.grey[50]
-                  : t.palette.grey[900],
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+            // xs={false}
+            // sm={4}
+            // md={7}
+            // sx={{
+            //   backgroundImage: "url(https://source.unsplash.com/random)",
+            //   backgroundRepeat: "no-repeat",
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            // }}
           />
           <Grid
             item
-            xs={12}
-            sm={8}
-            md={5}
+            // xs={12}
+            // sm={8}
+            // md={5}
             component={Paper}
             elevation={6}
             square
@@ -69,7 +58,7 @@ const Login = () => {
               <Box
                 component="form"
                 noValidate
-                onSubmit={handleSubmit}
+                // onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
                 <TextField
@@ -100,7 +89,7 @@ const Login = () => {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                //   sx={{ mt: 3, mb: 2 }}
                 >
                   Sign In
                 </Button>
