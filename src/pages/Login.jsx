@@ -20,13 +20,15 @@ const Login = () => {
           marginTop: 8,
         }}
       >
-        <Grid container>
+        <Grid >
           <CssBaseline />
           <Grid
             item
-            // xs={false}
-            // sm={4}
-            // md={7}
+            xs={false}
+            sm={4}
+            md={7}
+            lg={8}
+            xl={9}
             // sx={{
             //   backgroundImage: "url(https://source.unsplash.com/random)",
             //   backgroundRepeat: "no-repeat",
@@ -36,10 +38,12 @@ const Login = () => {
           />
           <Grid
             item
-            // xs={12}
-            // sm={8}
-            // md={5}
-            component={Paper}
+            xs={false}
+            sm={8}
+            md={5}
+            lg={4}
+            xl={3}
+            
             elevation={6}
             square
           >
