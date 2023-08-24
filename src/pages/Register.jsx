@@ -12,14 +12,15 @@ const Register = () => {
 
     return (
         
-        <Grid container justifyContent="center" 
+        <Grid container justifyContent="center" height="inherit" sx={{backgroundColor:"#DCDCDC"}}
          >
             <Grid item
                 md={6}
                 lg={7}
                 xl={8}
-                justifyContent="center"
-                alignItems="center">
+                sx={{ display: 'flex', justifyContent:"center",
+                alignItems:"center"}}
+                >
             <img 
                 width="350rem"
                 margin="auto"
@@ -44,8 +45,8 @@ const Register = () => {
                     
                     }}
                 >
-                    <Typography  component="h1" variant="h5">
-                        Sign in
+                    <Typography  component="h1" variant="h5" >
+                        Sign Up
                     </Typography>
                     <Box overflow="scroll"
                         component="form"
