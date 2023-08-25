@@ -1,4 +1,4 @@
-import {creareSlice} from "@reduxjs/toolkit"
+import {createSlice} from "@reduxjs/toolkit"
 
 const authSlice = createSlice({
     name:"auth",
@@ -15,14 +15,21 @@ const authSlice = createSlice({
             state.loading = true;
             state.error = false;
         },
-        getAuthSuccess:(state,action){
+        getAuthSuccess:(state,action)=>{
             state.loading = false;
             state.currentUser = action.XXX;
             state.token = action.XXX;
         },
-        fetchFail:(state){
+        fetchFail:(state)=>{
             state.loading = false;
             state.error = true;
         }
     }
 })
+
+export const {
+    fetchStart,
+    getAuthSuccess,
+    fetchFail,
+  } = authSlice.actions;
+  export default authSlice.reducer;
