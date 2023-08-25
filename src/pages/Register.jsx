@@ -11,7 +11,7 @@ const Register = () => {
 
     return (
         
-        <Grid container height="100vh" width="100vw"  justifyContent="center" >
+        <Grid container   justifyContent="center" >
             <Grid item
                 xs={false}
                 sm={false}
