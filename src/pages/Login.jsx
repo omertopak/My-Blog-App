@@ -17,7 +17,13 @@ const Login = () => {
                 sm={3}
                 md={6}
                 lg={7}
-                xl={8}>
+                xl={8}
+                sx={{ display: 'flex', justifyContent:"center",
+                alignItems:"center"}}>
+                    
+                    <img 
+                width="350rem"
+                src="https://static.vecteezy.com/system/resources/previews/024/488/978/original/ink-splash-ai-generative-free-png.png"></img>
             </Grid>
             <CssBaseline />
             <Grid
