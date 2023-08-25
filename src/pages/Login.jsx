@@ -11,10 +11,10 @@ const Login = () => {
 
     return (
         
-        <Grid container height="100vh" width="100vw"  justifyContent="center">
+        <Grid container height="100vh" width="100vw"  justifyContent="center" sx={{backgroundColor:"whitesmoke"}}>
             <Grid item
                 xs={false}
-                sm={3}
+                sm={false}
                 md={6}
                 lg={7}
                 xl={8}
@@ -29,11 +29,12 @@ const Login = () => {
             <Grid
                 item
                 xs={12}
-                sm={9}
+                sm={12}
                 md={6}
                 lg={5}
                 xl={4}
                 p={1}
+                sx={{backgroundColor:"#F8F8F8"}}
                 >   
                 <Box     
                     sx={{
@@ -43,7 +44,8 @@ const Login = () => {
                         flexDirection: "column",
                         alignItems: "center",
                         marginRight:"5rem",
-                        marginTop:"7rem"
+                        marginTop:"7rem",
+                        
                     }}
                 >
                     <Typography  component="h1" variant="h5">

@@ -7,11 +7,11 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 const Register = () => {
-
+  
 
     return (
         
-        <Grid container   justifyContent="center" >
+        <Grid container   justifyContent="center"  sx={{backgroundColor:"whitesmoke"}}>
             <Grid item
                 xs={false}
                 sm={false}
@@ -34,6 +34,7 @@ const Register = () => {
                 lg={5}
                 xl={4}
                 p={1}
+                sx={{backgroundColor:"#F8F8F8"}}
                 >   
                 <Box     
                     sx={{
