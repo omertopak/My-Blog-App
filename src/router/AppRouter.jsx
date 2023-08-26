@@ -10,15 +10,16 @@ import PrivateRouter from './PrivateRouter';
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <Header />
+      
       <Routes>
         <Route path='/' element={<Login />} />
-        {/* <Route path='' element={<Register />} />
-        <Route path='blog' element={<PrivateRouter/>}>
-          <Route path='/' element={<Home />} />
-          <Route path='' element={<BlogCard />} />
-
-        </Route> */}
+        <Route path='register' element={<Register />} />
+        <Route path='ink' element={<PrivateRouter />}>
+          <Route path='' element={<Header />}>
+            <Route index element={<Home />} />
+           
+          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   )
