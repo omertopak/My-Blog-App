@@ -1,15 +1,26 @@
 import React from 'react'
-import axios from "axios"
-import { fetchStart } from '../features/authSlice'
+import { fetchFail, fetchStart, getAuthSuccess } from '../features/authSlice'
+import { useDispatch } from 'react-redux'
+import useAxios from './useAxios'
+import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
+
 
 const useAuthCall = () => {
+   const dispatch = useDispatch()
+   const {axiosPublic} = useAxios() 
 
-  const login = async (data)=>{
+
+
+    const login = async (userdata)=>{
     dispatch(fetchStart())
     try {
-      
-    } catch () {
-      
+    const data = await axiosPublic.post(`/users/auth/login/`)
+    toastSuccessNotify(`Successfully logged in`)
+    getAuthSuccess(data)
+
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
     }
   }
 
@@ -18,9 +29,7 @@ const useAuthCall = () => {
 
 
 
-  return (
-    <div>useAuthCall</div>
-  )
+  return {login,}
 }
 
 export default useAuthCall

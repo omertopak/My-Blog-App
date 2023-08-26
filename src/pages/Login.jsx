@@ -5,9 +5,12 @@ import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import {Form, Formik } from 'formik';
+import useAuthCall from "../hooks/useAuthCall";
+
 
 const Login = () => {
-
+    const {login} = useAuthCall
 
     return (
         
@@ -51,22 +54,50 @@ const Login = () => {
                     <Typography  component="h1" variant="h5">
                         Sign in
                     </Typography>
+
+
+                    <Formik
+                    initialValues={{username:"", email: "", password: "" }}
+                    
+                    onSubmit={(values, action) => {
+                      login(values)
+                      action.resetForm()
+                      action.setSubmitting(false)
+                    }}
+                    >
+
+                    {({ handleChange, values, }) => (   
+                    <Form>
                     <Box
                         component="form"
                         noValidate
-                        // onSubmit={handleSubmit}
                         sx={{ mt: 5 }}
                     >
+
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="Usernaem"
+                            name="username"
+                            autoComplete="username"
+                            onChange={handleChange}
+                            value={values.username}
                             autoFocus
                             sx={{ mt: 1, mb: 6 }}
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="email"
+                            label="Email Address"
+                            type="email"
+                            id="email"
+                            autoComplete="Email"
+                            onChange={handleChange}
+                            value={values.email}
                         />
                         <TextField
                             margin="normal"
@@ -77,6 +108,8 @@ const Login = () => {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={handleChange}
+                            value={values.password}
                         />
                         {/* <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
@@ -103,6 +136,11 @@ const Login = () => {
                             </Grid>
                         </Grid>
                     </Box>
+                    </Form>
+                    )}
+                    </Formik>
+
+
                 </Box>
             </Grid>
         </Grid>
