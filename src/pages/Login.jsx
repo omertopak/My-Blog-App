@@ -1,13 +1,12 @@
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Form, Formik } from 'formik';
 import useAuthCall from "../hooks/useAuthCall";
-
+import { Link } from "react-router-dom"
 
 const Login = () => {
     const { login } = useAuthCall()
@@ -128,12 +127,10 @@ const Login = () => {
                                     </Button>
                                     <Grid container>
                                         <Grid item xs>
-                                            <Link href="#" variant="body2">
-                                                Forgot password?
-                                            </Link>
+                                        
                                         </Grid>
                                         <Grid item>
-                                            <Link href="#" variant="body2">
+                                            <Link to="/register" variant="body2">
                                                 {"Don't have an account? Sign Up"}
                                             </Link>
                                         </Grid>

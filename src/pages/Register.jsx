@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
+import { Link } from "react-router-dom"
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -48,7 +48,7 @@ const Register = () => {
                     }}
                 >
                     <Typography  component="h1" variant="h5">
-                        Sign in
+                        Sign Up
                     </Typography>
                     <Box
                         component="form"
@@ -60,10 +60,10 @@ const Register = () => {
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
+                            id="username"
+                            label="Username"
+                            name="username"
+                            autoComplete="username"
                             autoFocus
                             
                         />
@@ -71,18 +71,29 @@ const Register = () => {
                             margin="normal"
                             required
                             fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
+                            name="first_name"
+                            label="First Name"
+                            type="first_name"
+                            id="first_name"
+                            autoComplete="first_name"
                         />
                          <TextField
                             margin="normal"
                             required
                             fullWidth
+                            id="last_name"
+                            label="Last Name"
+                            name="last_name"
+                            autoComplete="last_name"
+                            autoFocus
+                            
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
                             id="email"
-                            label="Email Address"
+                            label="e-mail"
                             name="email"
                             autoComplete="email"
                             autoFocus
@@ -93,11 +104,10 @@ const Register = () => {
                             required
                             fullWidth
                             id="image"
-                            label="Avatar Address"
+                            label="Image"
                             name="image"
                             autoComplete="image"
                             autoFocus
-                            
                         />
                         <TextField
                             margin="normal"
@@ -106,29 +116,29 @@ const Register = () => {
                             id="bio"
                             label="Bio"
                             name="bio"
-                            autoComplete="email"
+                            autoComplete="bio"
                             autoFocus
                             
                         />
+                        
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Password"
-                            name="password"
-                            autoComplete="email"
-                            autoFocus
-                            
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Verify Your Password"
+                            id="password"
+                            label="Password "
                             name="Password"
-                            autoComplete="email"
+                            autoComplete="password"
+                            autoFocus
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="password2"
+                            label="Password Confirm"
+                            name="Password2"
+                            autoComplete="password2"
                             autoFocus
                         />
                         <Button
@@ -140,13 +150,12 @@ const Register = () => {
                             Sign Up
                         </Button>
                         <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
+                        <Grid item xs>
+                                        
+                                        </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                
+                                <Link to="/" variant="body2">
                                     {"Have an account? Log in"}
                                 </Link>
                             </Grid>
