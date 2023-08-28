@@ -1,5 +1,5 @@
 import React from 'react'
-import { fetchFail, fetchStart, getAuthSuccess } from '../features/authSlice'
+import { fetchFail, fetchStart, getAuthSuccess,logoutSuccess } from '../features/authSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
 import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
@@ -40,11 +40,23 @@ const useAuthCall = () => {
     }
   }
 
+  const logout = async () => {
+    dispatch(fetchStart())
+    try {
+      await axiosPublic.post(`/users/auth/logout/`)
+      dispatch(logoutSuccess())
+      toastSuccessNotify("logout islemi basarili")
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+      dispatch(fetchFail())
+      toastErrorNotify("Logout islemi basarisiz")
+    }
+  }
 
 
 
-
-  return {login,register}
+  return {login,register,logout}
 }
 
 export default useAuthCall

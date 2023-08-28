@@ -9,6 +9,7 @@ import {theme} from "../style/theme"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import useAuthCall from '../hooks/useAuthCall';
 
 const StyledToolbar = styled(Toolbar)({
   display:"flex",
@@ -41,6 +42,7 @@ const UserBox = styled(Box)({
 
 const Header = () => {
   const [open, setOpen] = useState(false)
+  const {logout} = useAuthCall()
 
   return (
     <AppBar position='fixed'>
@@ -79,7 +81,7 @@ const Header = () => {
       >
         <MenuItem >Profile</MenuItem>
         <MenuItem >My account</MenuItem>
-        <MenuItem >Logout</MenuItem>
+        <MenuItem onClick={()=>logout()}>Logout</MenuItem>
       </Menu>
       </AppBar>
   )
