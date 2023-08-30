@@ -10,6 +10,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import useAuthCall from '../hooks/useAuthCall';
+import { useNavigate } from 'react-router';
 
 const StyledToolbar = styled(Toolbar)({
   display:"flex",
@@ -43,7 +44,7 @@ const UserBox = styled(Box)({
 const Header = () => {
   const [open, setOpen] = useState(false)
   const {logout} = useAuthCall()
-
+  const navigate = useNavigate()
   return (
     <AppBar position='fixed'>
       <StyledToolbar>
@@ -52,9 +53,8 @@ const Header = () => {
         <Typography variant='h5' >INK</Typography>
         </Box>
         <Icons>
-            
             <DashboardIcon/>
-            <Typography variant='h6'>Dashboard</Typography>
+            <Typography variant='h6' >Dashboard</Typography>
             <StickyNote2Icon/>
             <Typography variant='h6'>New Blog</Typography>
             <PermIdentityIcon/>

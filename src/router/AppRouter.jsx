@@ -5,7 +5,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
 import PrivateRouter from './PrivateRouter';
-
+import About from '../pages/About';
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -15,6 +15,7 @@ const AppRouter = () => {
         <Route path='ink' element={<PrivateRouter />}>
           <Route path='' element={<Header />}>
             <Route index element={<Home />} />
+            <Route path="about" element={<About/>} />
             
           </Route>
         </Route>
