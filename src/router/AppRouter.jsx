@@ -10,10 +10,10 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='register' element={<Register />} />
-        <Route path='ink' element={<PrivateRouter />}>
-          <Route path='' element={<Header />}>
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<PrivateRouter />}>
+          <Route path='' element={<Header/>}>
             <Route index element={<Home />} />
             <Route path="about" element={<About/>} />
             
