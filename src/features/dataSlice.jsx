@@ -1,26 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 const dataSlice = createSlice({
-    name:"data",
+    name:"blog",
 
     initialState:{
         loading:false,
         error:false,
         token:null,
-        id:null,
-        title:null,
-        content:null,
-        // image
-        // publish_date
-        // author
-        // status
-        // slug
-        // comments
-        // category_name
-        // likes
-        // post_views
-        // comment_count
-        // likes_n
+        blogs:[],
     },
 
     reducers:{
@@ -28,8 +15,10 @@ const dataSlice = createSlice({
             state.loading = true;
             state.error = false;
         },
-        getdataSuccess:(state,{payload})=>{
-            state.title=payload?.title
+        getDataSuccess:(state,{payload})=>{
+            //console.log("payload.data",payload.url);
+            state[payload.url]=payload?.data;
+            state.loading = false;
         },
         // logoutSuccess:()=>{
             
@@ -42,6 +31,8 @@ const dataSlice = createSlice({
 })
 
 export const {
-    
+    fetchStart,
+    getDataSuccess,
+    fetchFail,
   } = dataSlice.actions;
   export default dataSlice.reducer;

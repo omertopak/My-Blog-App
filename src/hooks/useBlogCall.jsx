@@ -1,4 +1,4 @@
-import { fetchFail, fetchStart, getDataSuccess,logoutSuccess } from '../features/authSlice'
+import { fetchFail, fetchStart, getDataSuccess } from '../features/dataSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
 import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
@@ -13,9 +13,11 @@ const useAuthCall = () => {
     const getData = async (url,id)=>{
     dispatch(fetchStart())
     try {
-    const {data} = await axiosWithToken(`/api/${url}/`,)
+    const {data} = await axiosWithToken(`/api/${url}/`)
     toastSuccessNotify("get data calisti")
-    dispatch(getDataSuccess(data))
+    console.log("get data calisti");
+    console.log(data);
+    dispatch(getDataSuccess({data,url}))
 
     } catch (error) {
       dispatch(fetchFail())
