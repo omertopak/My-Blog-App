@@ -11,7 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
 import useAuthCall from '../hooks/useAuthCall';
 import { useNavigate } from 'react-router';
-
+import { Outlet } from 'react-router-dom'
 const StyledToolbar = styled(Toolbar)({
   display:"flex",
   justifyContent:"space-between",
@@ -83,6 +83,7 @@ const Header = () => {
         <MenuItem >My account</MenuItem>
         <MenuItem onClick={()=>logout()}>Logout</MenuItem>
       </Menu>
+      <Outlet />
       </AppBar>
   )
 }
