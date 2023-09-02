@@ -46,7 +46,8 @@ const Header = () => {
   const {logout} = useAuthCall()
   const navigate = useNavigate()
   return (
-    <AppBar position='fixed'>
+  
+    <AppBar position='sticky' sx={{minHeight:"100vh"}} >
       <StyledToolbar>
         <Box sx={{display:"flex",alignItems:"center" }}>
         <DrawIcon fontSize='large'/> 
@@ -83,8 +84,10 @@ const Header = () => {
         <MenuItem >My account</MenuItem>
         <MenuItem onClick={()=>logout()}>Logout</MenuItem>
       </Menu>
+      
       <Outlet />
       </AppBar>
+      
   )
 }
 
