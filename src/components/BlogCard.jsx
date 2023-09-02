@@ -11,7 +11,7 @@ import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button } from '@mui/material';
-
+import PreviewIcon from '@mui/icons-material/Preview';
 
 
 export default function BlogCard({keykey,title,date,author,image,content}) 
@@ -51,7 +51,7 @@ export default function BlogCard({keykey,title,date,author,image,content})
           <ShareIcon />
         </IconButton>
         <IconButton aria-label="share">
-          <ShareIcon />
+          <PreviewIcon />
         </IconButton>
       </CardActions>
       <Button variant='contained'>READ MORE</Button>
