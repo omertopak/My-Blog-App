@@ -9,20 +9,19 @@ const Home = () => {
   const {blogs} = useSelector((state)=>state.blog)
   const { getData } = useBlogCall()
 
-
-  console.log(blogs);
   useEffect(() => {
     getData("blogs")
     
   }, [])
   // console.log(blogs);
-
+  
 
   return (
-    <Box   sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly"}} width="100vw" >
+    <Box sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly"}} width="100vw" >
       {blogs.map((blog)=>(
+        
       <BlogCard
-      keykey={blog.id}
+      id={blog.id}
       title={blog.title}
       date={blog.publish_date}
       author = {blog.author}

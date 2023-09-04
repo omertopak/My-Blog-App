@@ -12,16 +12,19 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button } from '@mui/material';
 import PreviewIcon from '@mui/icons-material/Preview';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
-export default function BlogCard({keykey,title,date,author,image,content}) 
+export default function BlogCard({id,title,date,author,image,content}) 
 {
-  
-
+  const navigate = useNavigate()
+  // console.log(id);
+  // console.log(title);
 
   return (
     
-    <Card key={keykey} sx={{ maxWidth: 345,margin:"15px" }}>
+    <Card key={id} sx={{ maxWidth: 345,margin:"15px" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -54,7 +57,8 @@ export default function BlogCard({keykey,title,date,author,image,content})
           <PreviewIcon />
         </IconButton>
       </CardActions>
-      <Button variant='contained'>READ MORE</Button>
+      <Link to={`/detail/${id}`}> <Button variant='contained'>READ MORE</Button></Link>
+     
       </Box>
     </Card>
   );
