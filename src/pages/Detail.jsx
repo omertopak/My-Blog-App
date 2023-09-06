@@ -30,7 +30,7 @@ const Detail = () => {
   }, [])
 
   const { blogs } = useSelector((state) => state.blog)
-  // console.log(blogs);
+  console.log("blogdetail",blogs);
 
 
   return (
@@ -76,7 +76,7 @@ const Detail = () => {
                 position: "absolute",
                 top: "-1px",
                 right: "-1px"
-              }}>3</Typography>
+              }}>{blogs.likes_n.length}</Typography>
             </IconButton>
             <IconButton aria-label="share">
               <ShareIcon />
@@ -84,7 +84,7 @@ const Detail = () => {
                 position: "absolute",
                 top: "-1px",
                 right: "-1px"
-              }}>3</Typography>
+              }}>{blogs.likes_n.length}</Typography>
             </IconButton>
             <IconButton aria-label="share">
               <CommentIcon />
