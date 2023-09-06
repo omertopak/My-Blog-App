@@ -43,11 +43,11 @@ const Detail = () => {
         alignItems: "center"
 
       }}>
-        
+
         <img component="img"
           alt='Image'
           src={blogs.image}
-          sx={{width:{xs:"10px",sm:"32px",md:"50px",lg:"100px", xl:"200px"}}}
+          sx={{ width: { xs: "10px", sm: "32px", md: "50px", lg: "100px", xl: "200px" } }}
         />
         {/* <Image alt='Image'
         src={blogs.image}
@@ -71,15 +71,35 @@ const Detail = () => {
         }}>
           <Box>
             <IconButton aria-label="add to favorites">
-              <FavoriteIcon />
+              <FavoriteIcon sx={{ position: "relative" }} />
+              <Typography sx={{
+                position: "absolute",
+                top: "-1px",
+                right: "-1px"
+              }}>3</Typography>
             </IconButton>
             <IconButton aria-label="share">
               <ShareIcon />
+              <Typography sx={{
+                position: "absolute",
+                top: "-1px",
+                right: "-1px"
+              }}>3</Typography>
             </IconButton>
             <IconButton aria-label="share">
               <CommentIcon />
+              <Typography sx={{
+                position: "absolute",
+                top: "-1px",
+                right: "-1px"
+              }}>3</Typography>
             </IconButton>
             <IconButton aria-label="share">
+              <Typography sx={{
+                position: "absolute",
+                top: "-1px",
+                right: "-1px"
+              }}>3</Typography>
               <PreviewIcon />
             </IconButton>
           </Box>
