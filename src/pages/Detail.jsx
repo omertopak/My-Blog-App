@@ -22,7 +22,8 @@ const Detail = () => {
   const params = useParams()
   // console.log("params=",params.id);
   const id = params.id
-
+  const url = window.location.href
+  console.log(url);
   const { getDataById } = useBlogCall()
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const Detail = () => {
   }, [])
 
   const { blogs } = useSelector((state) => state.blog)
-  console.log("blogdetail",blogs);
+  console.log("blogdetail", blogs);
 
 
   return (
@@ -87,20 +88,20 @@ const Detail = () => {
               }}>{blogs.likes_n.length}</Typography>
             </IconButton>
             <IconButton aria-label="share">
+              <Typography sx={{
+                position: "absolute",
+                top: "-1px",
+                right: "-1px"
+              }}>{blogs.post_views}</Typography>
+              <PreviewIcon />
+            </IconButton>
+            <IconButton aria-label="share">
               <CommentIcon />
               <Typography sx={{
                 position: "absolute",
                 top: "-1px",
                 right: "-1px"
-              }}>3</Typography>
-            </IconButton>
-            <IconButton aria-label="share">
-              <Typography sx={{
-                position: "absolute",
-                top: "-1px",
-                right: "-1px"
-              }}>3</Typography>
-              <PreviewIcon />
+              }}>{blogs.comments.length}</Typography>
             </IconButton>
           </Box>
           <Link to={-1}> <Button variant='contained'>Go Back</Button></Link>
