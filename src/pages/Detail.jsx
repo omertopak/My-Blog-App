@@ -1,6 +1,6 @@
 import { Box, Typography, Button, Paper } from '@mui/material';
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import useBlogCall from "../hooks/useBlogCall"
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux'
@@ -9,10 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import PreviewIcon from '@mui/icons-material/Preview';
-import { Link } from 'react-router-dom';
 import CommentIcon from '@mui/icons-material/Comment';
 import { likeButton } from '../style/theme';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -20,7 +19,7 @@ const Detail = () => {
   const params = useParams()
   // console.log("params=",params.id);
   const id = params.id
-  
+  const navigate = useNavigate()
   const { getDataById } = useBlogCall()
   const {userId} = useSelector((state)=>state.auth)
   useEffect(() => {
@@ -31,8 +30,8 @@ const Detail = () => {
   const { blogs } = useSelector((state) => state.blog)
   //console.log("blogdetail", blogs);
   
-  const userData = blogs.likes_n
-  console.log(userData);
+  // const userData = blogs.likes_n
+  // console.log(userData);
   // userData?.map((item)=>item.includes(userId))
 
   return (
@@ -104,6 +103,7 @@ const Detail = () => {
             </IconButton>
           </Box>
           <Link to={-1}> <Button variant='contained'>Go Back</Button></Link>
+          {/* <Button variant='contained' onClick={() => navigate(-1)}>GO BACK</Button> */}
         </CardActions>
 
       </Box>

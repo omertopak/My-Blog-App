@@ -12,16 +12,16 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button } from '@mui/material';
 import PreviewIcon from '@mui/icons-material/Preview';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
 
-export default function BlogCard() 
+const BlogCard=() =>
 {
   const { getData } = useBlogCall()
   const {blogs} = useSelector((state)=>state.blog)
-  
+  const navigate = useNavigate()
   useEffect(() => {
     console.log("useEffect");
     getData("blogs")
@@ -66,10 +66,12 @@ export default function BlogCard()
         </IconButton>
       </CardActions>
       <Link to={`/detail/${blog.id}`}> <Button variant='contained'>READ MORE</Button></Link>
-     
+      {/* <Button variant='contained' onClick={() => navigate(`/detail/${blog.id}`)}>READ MORE</Button> */}
       </Box>
     </Card>
     ))}
     </>
   );
 }
+
+export default BlogCard
