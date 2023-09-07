@@ -8,6 +8,7 @@ const authSlice = createSlice({
         loading:false,
         error:false,
         token:null,
+        userId:null,
     },
 
     reducers:{
@@ -19,6 +20,10 @@ const authSlice = createSlice({
             state.loading = false;
             state.currentUser = payload.user.username;
             state.token = payload.key;
+            state.userId=payload.user.id;
+            // console.log("Token",payload.key);
+            // console.log("id",payload.user.id);
+            // console.log(payload);
         },
         logoutSuccess:(state)=>{
             state.loading = false;

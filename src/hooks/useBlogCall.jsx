@@ -14,10 +14,11 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken(`/api/${url}/`)
+      dispatch(getDataSuccess({ data, url }))
       toastSuccessNotify("get data calisti")
       console.log("get data calisti");
       // console.log(data);
-      dispatch(getDataSuccess({ data, url }))
+      
 
     } catch (error) {
       dispatch(fetchFail())
@@ -30,7 +31,7 @@ const useAuthCall = () => {
     try {
       const { data } = await axiosWithToken(`/api/${url}/${id}/`)
       toastSuccessNotify("get data by id calisti")
-      console.log("get data calisti");
+      console.log("get data by id calisti");
       console.log(data);
       dispatch(getDataSuccess({ data, url }))
 

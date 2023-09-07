@@ -12,37 +12,45 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button } from '@mui/material';
 import PreviewIcon from '@mui/icons-material/Preview';
-import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import useBlogCall from "../hooks/useBlogCall"
 
-
-export default function BlogCard({id,title,date,author,image,content}) 
+export default function BlogCard() 
 {
-  const navigate = useNavigate()
+  const { getData } = useBlogCall()
+  const {blogs} = useSelector((state)=>state.blog)
+  
+  useEffect(() => {
+    console.log("useEffect");
+    getData("blogs")
+  }, [])
   // console.log(id);
   // console.log(title);
-
+  // console.log("umut");
   return (
-    
-    <Card key={id} sx={{ maxWidth: 345,margin:"15px" }}>
+    <>
+     {blogs?.map((blog)=>(
+    <Card key={blog.id} sx={{ maxWidth: 345,margin:"15px" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             
           </Avatar>
         }
-        title={author}
-        subheader={date.substring(0,10)+" / "+date.substring(11,16) }
+        title={blog.author}
+        subheader={blog.publish_date.substring(0,10)+" / "+blog.publish_date.substring(11,16) }
       />
       <CardMedia
         component="img"
         height="194"
-        image={image}
+        image={blog.image}
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" overflow="hidden" height="7rem">
-          {content}
+        {blog.content}
         </Typography>
       </CardContent>
       <Box sx={{display:"flex" }} justifyContent="space-between" m p>
@@ -57,9 +65,11 @@ export default function BlogCard({id,title,date,author,image,content})
           <PreviewIcon />
         </IconButton>
       </CardActions>
-      <Link to={`/detail/${id}`}> <Button variant='contained'>READ MORE</Button></Link>
+      <Link to={`/detail/${blog.id}`}> <Button variant='contained'>READ MORE</Button></Link>
      
       </Box>
     </Card>
+    ))}
+    </>
   );
 }
