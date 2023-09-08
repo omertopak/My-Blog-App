@@ -12,6 +12,7 @@ import { useState } from 'react';
 import useAuthCall from '../hooks/useAuthCall';
 import { useNavigate } from 'react-router';
 import { Outlet } from 'react-router-dom'
+import { Button } from '@mui/material';
 const StyledToolbar = styled(Toolbar)({
   display:"flex",
   justifyContent:"space-between",
@@ -54,12 +55,14 @@ const Header = () => {
         <Typography variant='h5' >INK</Typography>
         </Box>
         <Icons>
-            <DashboardIcon/>
-            <Typography variant='h6' >Dashboard</Typography>
-            <StickyNote2Icon/>
-            <Typography variant='h6'>New Blog</Typography>
-            <PermIdentityIcon/>
-            <Typography variant='h6'>About</Typography>
+            <Button sx={{color:"black"}}><DashboardIcon/>
+            <Typography variant='h6' >Dashboard</Typography></Button>
+            <Button sx={{color:"black"}}><StickyNote2Icon/>
+            <Typography variant='h6'>New Blog</Typography></Button>
+            <Button sx={{color:"black"}}
+            onClick={()=>navigate("/about")}><PermIdentityIcon/>
+            <Typography variant='h6'>About</Typography></Button>
+            
             <Avatar onClick={e=>setOpen(true)}/>
         </Icons>
         <UserBox>

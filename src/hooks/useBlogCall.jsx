@@ -30,7 +30,7 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken(`/api/${url}/${id}/`)
-      toastSuccessNotify("get data by id calisti")
+      // toastSuccessNotify("get data by id calisti")
       console.log("get data by id calisti");
       console.log(data);
       dispatch(getDataSuccess({ data, url }))

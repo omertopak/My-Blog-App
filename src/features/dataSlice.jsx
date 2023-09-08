@@ -17,7 +17,7 @@ const dataSlice = createSlice({
         },
         getDataSuccess:(state,{payload})=>{
             //console.log("payload.data",payload.url);
-            state[payload.url]=payload?.data;
+            state[payload?.url]=payload?.data;
             state.loading = false;
         },
         // logoutSuccess:()=>{

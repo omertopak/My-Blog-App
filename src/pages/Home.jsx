@@ -7,10 +7,10 @@ const Home = () => {
   
   const { getData} = useBlogCall()
   
-  useEffect(() => {
-    console.log("home");
-    getData("blogs")
-  }, [])
+  // useEffect(() => {
+  //   console.log("homedaki clg");
+  //   getData("blogs")
+  // }, [])
 
    //console.log(blogs);
  

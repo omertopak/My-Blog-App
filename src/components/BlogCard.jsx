@@ -23,8 +23,10 @@ const BlogCard=() =>
   const {blogs} = useSelector((state)=>state.blog)
   const navigate = useNavigate()
   useEffect(() => {
-    console.log("useEffect");
-    getData("blogs")
+    
+    console.log("blogcard daki clg");
+    getData("blogs");
+ 
   }, [])
   // console.log(id);
   // console.log(title);
@@ -67,6 +69,10 @@ const BlogCard=() =>
       </CardActions>
       <Link to={`/detail/${blog.id}`}> <Button variant='contained'>READ MORE</Button></Link>
       {/* <Button variant='contained' onClick={() => navigate(`/detail/${blog.id}`)}>READ MORE</Button> */}
+      {/* <Button
+        onClick={() => navigate(`/detail/${blog.id}`, { state: blog })}>
+        View More
+      </Button> */}
       </Box>
     </Card>
     ))}

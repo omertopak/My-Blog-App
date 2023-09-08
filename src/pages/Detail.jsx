@@ -71,19 +71,17 @@ const Detail = () => {
           textAlign: "center"
         }}>
           <Box>
-            <IconButton aria-label="add to favorites">
-              <FavoriteIcon sx={{ position: "relative" }} />
-              <Typography sx={{
-                position: "absolute",
-                top: "0px",
-                right: "0px",
-                backgroundColor:"#f44336",
-                width:"1.1rem",
-                Height:"1.1rem",
-                border:"none",
-                borderRadius:"50%",
-                fontSize:"12px"
-              }}>{blogs.likes}</Typography>
+            <IconButton aria-label="add to favorites" >
+              <FavoriteIcon />
+              <Typography sx={likeButton}>{blogs.likes}</Typography>
+            </IconButton>
+            <IconButton aria-label="share">
+              <Typography sx={likeButton}>{blogs.post_views}</Typography>
+              <PreviewIcon />
+            </IconButton>
+            <IconButton aria-label="share">
+              <CommentIcon />
+              <Typography sx={likeButton}>{blogs.comment_count}</Typography>
             </IconButton>
             <IconButton aria-label="share">
               <ShareIcon />
@@ -92,14 +90,6 @@ const Detail = () => {
                 top: "-1px",
                 right: "-1px",
               }}></Typography>
-            </IconButton>
-            <IconButton aria-label="share">
-              <Typography sx={likeButton}>{blogs.post_views}</Typography>
-              <PreviewIcon />
-            </IconButton>
-            <IconButton aria-label="share">
-              <CommentIcon />
-              <Typography sx={likeButton}>{blogs.comments_count}</Typography>
             </IconButton>
           </Box>
           <Link to={-1}> <Button variant='contained'>Go Back</Button></Link>
