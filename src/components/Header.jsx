@@ -48,7 +48,7 @@ const Header = () => {
   const navigate = useNavigate()
   return (
   
-    <AppBar position='sticky' sx={{minHeight:"100vh"}} >
+    <AppBar position='sticky' sx={{minHeight:"100vh", minWidth:"100vw"}} >
       <StyledToolbar>
         <Box sx={{display:"flex",alignItems:"center" }}>
         <DrawIcon fontSize='large'/> 

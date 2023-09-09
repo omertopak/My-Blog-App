@@ -49,6 +49,7 @@ const BlogCard=() =>{
         height="194"
         image={blog?.image}
         alt="Paella dish"
+        sx={{objectFit:"contain",padding:"4px"}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" overflow="hidden" height="7rem">

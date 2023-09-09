@@ -12,7 +12,7 @@ import PreviewIcon from '@mui/icons-material/Preview';
 import CommentIcon from '@mui/icons-material/Comment';
 import { likeButton } from '../style/theme';
 import { Link } from 'react-router-dom';
-
+import CardMedia from '@mui/material/CardMedia';
 
 const Detail = () => {
   const params = useParams()
@@ -46,12 +46,12 @@ const Detail = () => {
         alignItems: "center"
 
       }}>
-
-        <img component="img"
-          alt='Image'
-          src={blogById[0]?.image}
-          sx={{ width: { xs: "10px", sm: "32px", md: "50px", lg: "100px", xl: "200px" } }}
-        />
+        <CardMedia
+        component="img"
+        image={blogById[0]?.image}
+        alt="Image"
+        sx={{height:"20rem",objectFit:"contain"}}
+      />
         {/* <Image alt='Image'
         src={blogById[0].image}
         /> */}

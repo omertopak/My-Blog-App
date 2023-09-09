@@ -31,8 +31,8 @@ const useAuthCall = () => {
     try {
       await axiosWithToken(`/api/${url}/${id}/`)
       // toastSuccessNotify("get data by id calisti")
-      console.log("get data by id calisti");
       getData("blogs")
+      
       
 
     } catch (error) {
