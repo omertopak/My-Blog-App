@@ -7,19 +7,20 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Formik, Form } from "formik";
 import useAuthCall from "../hooks/useAuthCall";
+// import { object,string } from "yup"
 const Register = () => {
     const { register } = useAuthCall()
 
-    const registerSchema = object({
-        email: string()
-          .email("Lutfen valid bir email giriniz")
-          .required("Bu alan zorunludur"),
-        password: string()
-          .required("Bu alan zorunludur")
-          .min(8, "En az 8 karakter girilmelidir")
-          .max(16, "En fazla 16 karakter girilmelidir")
-          .matches(/\d+/, "En az bir rakam içermelidir.")
-      })
+    // const registerSchema = object({
+    //     email: string()
+    //       .email("Lutfen valid bir email giriniz")
+    //       .required("Bu alan zorunludur"),
+    //     password: string()
+    //       .required("Bu alan zorunludur")
+    //       .min(8, "En az 8 karakter girilmelidir")
+    //       .max(16, "En fazla 16 karakter girilmelidir")
+    //       .matches(/\d+/, "En az bir rakam içermelidir.")
+    //   })
 
     return (
 
@@ -68,7 +69,7 @@ const Register = () => {
                     </Typography>
                     <Formik
                         initialValues={{ username: "", first_name: "", last_name: "", email: "", image: "", bio: "", password: "", password2: "" }}
-                        validate={registerSchema}
+                        // validate={registerSchema}
                         onSubmit={(values, action) => {
                             console.log(values);
                             register(values)

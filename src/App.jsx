@@ -6,8 +6,13 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistor } from './app/store'
 import { ThemeProvider } from '@emotion/react'
 import { theme } from './style/theme'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+
+
+
   return (
 
     <Provider store={store}>
@@ -15,6 +20,7 @@ const App = () => {
         <ThemeProvider theme={theme}>
           <AppRouter />
         </ThemeProvider>
+        <ToastContainer/>
       </PersistGate>
     </Provider>
   )

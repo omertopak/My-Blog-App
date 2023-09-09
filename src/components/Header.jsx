@@ -51,13 +51,12 @@ const Header = () => {
     <AppBar position='sticky' sx={{minHeight:"100vh", minWidth:"100vw"}} >
       <StyledToolbar>
         <Box sx={{display:"flex",alignItems:"center" }}>
+          <Button onClick={()=>navigate("/ink")} sx={{color:"black"}}>
         <DrawIcon fontSize='large'/> 
-        <Typography variant='h5' >INK</Typography>
+        <Typography variant='h5' >INK</Typography></Button>
         </Box>
         <Icons>
-            <Button sx={{color:"black"}}><DashboardIcon/>
-            <Typography variant='h6' >Dashboard</Typography></Button>
-            <Button sx={{color:"black"}}><StickyNote2Icon/>
+            <Button onClick={()=>navigate("/newblog")} sx={{color:"black"}}><StickyNote2Icon/>
             <Typography variant='h6'>New Blog</Typography></Button>
             <Button sx={{color:"black"}}
             onClick={()=>navigate("/about")}><PermIdentityIcon/>

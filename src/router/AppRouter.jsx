@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import PrivateRouter from './PrivateRouter';
 import About from '../pages/About';
 import Detail from '../pages/Detail';
+import NewBlog from '../pages/NewBlog';
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -18,6 +19,8 @@ const AppRouter = () => {
             <Route path="/ink" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/about" element={<About />} />
+            <Route path="/newblog" element={<NewBlog />} />
+            
           </Route>
         </Route>
       </Routes>
