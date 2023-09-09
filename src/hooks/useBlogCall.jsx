@@ -10,7 +10,7 @@ const useAuthCall = () => {
   const navigate = useNavigate()
 
 
-  const getData = async (url, id) => {
+  const getData = async (url) => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken(`/api/${url}/`)
@@ -26,14 +26,14 @@ const useAuthCall = () => {
       toastErrorNotify("HATA")
     }
   }
-  const getDataById = async (url, id) => {
+  const getViews = async (url, id) => {
     dispatch(fetchStart())
     try {
-      const { data } = await axiosWithToken(`/api/${url}/${id}/`)
+      await axiosWithToken(`/api/${url}/${id}/`)
       // toastSuccessNotify("get data by id calisti")
       console.log("get data by id calisti");
-      console.log(data);
-      dispatch(getDataSuccess({ data, url }))
+      getData("blogs")
+      
 
     } catch (error) {
       dispatch(fetchFail())
@@ -58,7 +58,7 @@ const useAuthCall = () => {
 
 
 
-  return { getData,getDataById }
+  return { getData,getViews }
 }
 
 export default useAuthCall

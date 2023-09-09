@@ -14,20 +14,22 @@ import { likeButton } from '../style/theme';
 import { Link } from 'react-router-dom';
 
 
-
 const Detail = () => {
   const params = useParams()
   // console.log("params=",params.id);
   const id = params.id
   const navigate = useNavigate()
-  const { getDataById } = useBlogCall()
-  const {userId} = useSelector((state)=>state.auth)
+  const { getViews } = useBlogCall()
+  //const {userId} = useSelector((state)=>state.auth)
   useEffect(() => {
     console.log("detail");
-    getDataById("blogs", id)
+    getViews("blogs", id);
   }, [])
 
   const { blogs } = useSelector((state) => state.blog)
+  console.log(blogs);
+  const blogById = blogs.filter((item)=>item.id==id)
+  console.log(blogById);
   //console.log("blogdetail", blogs);
   
   // const userData = blogs.likes_n
@@ -47,20 +49,20 @@ const Detail = () => {
 
         <img component="img"
           alt='Image'
-          src={blogs.image}
+          src={blogById[0]?.image}
           sx={{ width: { xs: "10px", sm: "32px", md: "50px", lg: "100px", xl: "200px" } }}
         />
         {/* <Image alt='Image'
-        src={blogs.image}
+        src={blogById[0].image}
         /> */}
         <Typography sx={{ textAlign: 'right', fontWeight: "bold", fontStyle: 'italic' }}>
-          Category Name:{blogs.category_name}
+          Category Name:{blogById[0]?.category_name}
         </Typography>
         <Typography variant='h5' sx={{ fontSize: 16, fontFamily: 'Monospace', textTransform: 'uppercase', fontWeight: 'bold', fontSize: 'h4.fontSize' }}>
-          {blogs.title}
+          {blogById[0]?.title}
         </Typography>
         <Typography sx={{ typography: 'body1', fontFamily: 'Monospace' }}>
-          {blogs.content}
+          {blogById[0]?.content}
         </Typography>
       </Box>
 
@@ -73,15 +75,15 @@ const Detail = () => {
           <Box>
             <IconButton aria-label="add to favorites" >
               <FavoriteIcon />
-              <Typography sx={likeButton}>{blogs.likes}</Typography>
+              <Typography sx={likeButton}>{blogById[0]?.likes}</Typography>
             </IconButton>
             <IconButton aria-label="share">
-              <Typography sx={likeButton}>{blogs.post_views}</Typography>
+              <Typography sx={likeButton}>{blogById[0]?.post_views}</Typography>
               <PreviewIcon />
             </IconButton>
             <IconButton aria-label="share">
               <CommentIcon />
-              <Typography sx={likeButton}>{blogs.comment_count}</Typography>
+              <Typography sx={likeButton}>{blogById[0]?.comment_count}</Typography>
             </IconButton>
             <IconButton aria-label="share">
               <ShareIcon />

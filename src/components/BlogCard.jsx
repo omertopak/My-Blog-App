@@ -17,42 +17,42 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
 
-const BlogCard=() =>
-{
+const BlogCard=() =>{  
   const { getData } = useBlogCall()
-  const {blogs} = useSelector((state)=>state.blog)
-  const navigate = useNavigate()
   useEffect(() => {
     
     console.log("blogcard daki clg");
     getData("blogs");
  
   }, [])
+  const {blogs} = useSelector((state)=>state.blog)
+  const navigate = useNavigate()
+  
   // console.log(id);
   // console.log(title);
   // console.log("umut");
   return (
     <>
      {blogs?.map((blog)=>(
-    <Card key={blog.id} sx={{ maxWidth: 345,margin:"15px" }}>
+    <Card key={blog?.id} sx={{ maxWidth: 345,margin:"15px" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             
           </Avatar>
         }
-        title={blog.author}
-        subheader={blog.publish_date.substring(0,10)+" / "+blog.publish_date.substring(11,16) }
+        title={blog?.author}
+        subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
       />
       <CardMedia
         component="img"
         height="194"
-        image={blog.image}
+        image={blog?.image}
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" overflow="hidden" height="7rem">
-        {blog.content}
+        {blog?.content}
         </Typography>
       </CardContent>
       <Box sx={{display:"flex" }} justifyContent="space-between" m p>
@@ -67,7 +67,7 @@ const BlogCard=() =>
           <PreviewIcon />
         </IconButton>
       </CardActions>
-      <Link to={`/detail/${blog.id}`}> <Button variant='contained'>READ MORE</Button></Link>
+      <Link to={`/detail/${blog?.id}`}> <Button variant='contained'>READ MORE</Button></Link>
       {/* <Button variant='contained' onClick={() => navigate(`/detail/${blog.id}`)}>READ MORE</Button> */}
       {/* <Button
         onClick={() => navigate(`/detail/${blog.id}`, { state: blog })}>
