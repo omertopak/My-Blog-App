@@ -26,15 +26,16 @@ const BlogCard=() =>{
  
   }, [])
   const {blogs} = useSelector((state)=>state.blog)
+  console.log(blogs);
   const navigate = useNavigate()
   
-  // console.log(id);
-  // console.log(title);
-  // console.log("umut");
+  const {userId} = useSelector((state)=>state.auth)
+  // console.log(userId);
   return (
     <>
      {blogs?.map((blog)=>(
-    <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1" }}>
+     
+     <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

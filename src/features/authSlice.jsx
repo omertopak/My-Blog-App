@@ -9,6 +9,7 @@ const authSlice = createSlice({
         error:false,
         token:null,
         userId:null,
+        image:null,
     },
 
     reducers:{
@@ -21,6 +22,7 @@ const authSlice = createSlice({
             state.currentUser = payload.user.username;
             state.token = payload.key;
             state.userId=payload.user.id;
+            state.image=payload.user.image;
             // console.log("Token",payload.key);
             // console.log("id",payload.user.id);
             console.log(payload);

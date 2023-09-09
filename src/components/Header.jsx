@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router';
 import { Outlet } from 'react-router-dom'
 import { Button } from '@mui/material';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
+import { useSelector } from 'react-redux'
+import { shadow,shadow2 } from '../style/theme';
 const StyledToolbar = styled(Toolbar)({
   display:"flex",
   justifyContent:"space-between",
@@ -47,28 +49,30 @@ const Header = () => {
   const {logout} = useAuthCall()
   const navigate = useNavigate()
 
+  const {image} = useSelector((state)=>state.auth)
+
   return (
   
     <AppBar position='sticky' sx={{minHeight:"100vh", minWidth:"100vw"}} >
       <StyledToolbar>
         <Box sx={{display:"flex",alignItems:"center" }}>
-          <Button onClick={()=>navigate("/ink")} sx={{color:"black"}}>
+          <Button  onClick={()=>navigate("/ink")} sx={[{color:"black"},shadow2]}>
         <DrawIcon fontSize='large'/> 
         <Typography variant='h5' >INK</Typography></Button>
         </Box>
         <Icons>
-            <Button onClick={()=>navigate("/ink")} sx={{color:"black"}}><NewspaperIcon/>
+            <Button  onClick={()=>navigate("/ink")} sx={[{color:"black"},shadow2]}><NewspaperIcon/>
             <Typography variant='h6'>Home</Typography></Button>
-            <Button onClick={()=>navigate("/newblog")} sx={{color:"black"}}><StickyNote2Icon/>
+            <Button onClick={()=>navigate("/newblog")} sx={[{color:"black"},shadow2]}><StickyNote2Icon/>
             <Typography variant='h6'>New Blog</Typography></Button>
-            <Button sx={{color:"black"}}
+            <Button sx={[{color:"black"},shadow2]}
             onClick={()=>navigate("/about")}><PermIdentityIcon/>
-            <Typography variant='h6'>About</Typography></Button>
+            <Typography  variant='h6'>About</Typography></Button>
             
-            <Avatar onClick={e=>setOpen(true)}/>
+            <Avatar sx={shadow2} src={image} onClick={e=>setOpen(true)}/>
         </Icons>
         <UserBox>
-          <Avatar alt='no img' src='' onClick={e=>setOpen(true)} sx={{width:"30px",height:"30px"}}/>
+          <Avatar alt='no img' src={image} onClick={e=>setOpen(true)} sx={[{width:"45px",height:"45px"},shadow]}/>
         </UserBox>
       </StyledToolbar>
       <Menu
