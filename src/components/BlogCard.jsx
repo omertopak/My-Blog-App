@@ -17,6 +17,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
 import { shadow } from '../style/theme';
+import { ellipsis } from '../style/theme';
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
   useEffect(() => {
@@ -50,14 +51,14 @@ const BlogCard=() =>{
         height="194"
         image={blog?.image}
         alt="Paella dish"
-        sx={{objectFit:"contain",padding:"4px"}}
+        sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",marginTop:"1rem"}}
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary" overflow="hidden" height="7rem">
+        <Typography variant="body2" color="text.secondary" overflow="hidden" mb={3} sx={ellipsis}>
         {blog?.content}
         </Typography>
       </CardContent>
-      <Box sx={{display:"flex" }} justifyContent="space-between" m p>
+      <Box sx={{display:"flex",alignItems:"center",marginBottom:"0.5rem" }} justifyContent="space-between"  m p >
       <CardActions >
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
