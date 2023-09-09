@@ -20,7 +20,8 @@ export const likeButton = {
   Height: "1.1rem",
   border: "none",
   borderRadius: "50%",
-  fontSize: "12px"
+  fontSize: "12px",
+  opacity:"0.8"
 }
 export const shadow = {
   boxShadow:"rgba(0, 0, 0, 0.56) 0px 22px 70px 4px"

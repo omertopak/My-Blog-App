@@ -41,6 +41,21 @@ const useAuthCall = () => {
       toastErrorNotify("HATA")
     }
   }
+  const like = async (url, id) => {
+    dispatch(fetchStart())
+    try {
+      await axiosWithToken.post(`/api/${url}/${id}/`)
+      // toastSuccessNotify("get data by id calisti")
+      getData("blogs")
+      
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("HATA")
+    }
+  }
 
   //   const logout = async () => {
   //     dispatch(fetchStart())
@@ -58,7 +73,7 @@ const useAuthCall = () => {
 
 
 
-  return { getData,getViews }
+  return { getData,getViews,like }
 }
 
 export default useAuthCall

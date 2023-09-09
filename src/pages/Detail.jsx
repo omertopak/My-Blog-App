@@ -20,6 +20,7 @@ const Detail = () => {
   const id = params.id
   const navigate = useNavigate()
   const { getViews } = useBlogCall()
+  const { like } = useBlogCall()
   useEffect(() => {
     console.log("detail");
     getViews("blogs", id);
@@ -32,9 +33,13 @@ const Detail = () => {
   const {userId} = useSelector((state)=>state.auth)
   const likes = blogById[0]?.likes_n
   const likesArray = likes?.map((item)=>item.user_id)
-  console.log(likesArray);
+  // console.log(likesArray);
   const heart = likesArray?.includes(userId)
-  console.log(heart);
+  // console.log(heart);
+
+  const handleClick = ()=>{
+    like("likes",id)
+  }
 
   return (
     <>
@@ -74,11 +79,11 @@ const Detail = () => {
         }}>
           <Box>
             {heart?
-            <IconButton aria-label="add to favorites" >
+            <IconButton onClick={()=>handleClick()} aria-label="add to favorites" >
               <FavoriteIcon sx={{color:"#d50000"}} />
               <Typography  sx={likeButton}>{blogById[0]?.likes}</Typography>
             </IconButton>:
-            <IconButton aria-label="add to favorites" >
+            <IconButton onClick={()=>handleClick()}  aria-label="add to favorites" >
             <FavoriteIcon />
             <Typography sx={likeButton}>{blogById[0]?.likes}</Typography>
           </IconButton>}
