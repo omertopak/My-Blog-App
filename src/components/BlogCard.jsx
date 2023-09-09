@@ -16,7 +16,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
-
+import { shadow } from '../style/theme';
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
   useEffect(() => {
@@ -34,7 +34,7 @@ const BlogCard=() =>{
   return (
     <>
      {blogs?.map((blog)=>(
-    <Card key={blog?.id} sx={{ maxWidth: 345,margin:"15px" }}>
+    <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

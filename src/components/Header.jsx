@@ -2,7 +2,6 @@ import { AppBar, Avatar, Toolbar, Typography, styled } from '@mui/material'
 import React from 'react'
 import DrawIcon from '@mui/icons-material/Draw';
 import { Box } from '@mui/material';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import {theme} from "../style/theme"
@@ -46,6 +45,7 @@ const Header = () => {
   const [open, setOpen] = useState(false)
   const {logout} = useAuthCall()
   const navigate = useNavigate()
+
   return (
   
     <AppBar position='sticky' sx={{minHeight:"100vh", minWidth:"100vw"}} >
@@ -65,7 +65,7 @@ const Header = () => {
             <Avatar onClick={e=>setOpen(true)}/>
         </Icons>
         <UserBox>
-          <Avatar onClick={e=>setOpen(true)} sx={{width:"30px",height:"30px"}}/>
+          <Avatar alt='no img' src='' onClick={e=>setOpen(true)} sx={{width:"30px",height:"30px"}}/>
         </UserBox>
       </StyledToolbar>
       <Menu

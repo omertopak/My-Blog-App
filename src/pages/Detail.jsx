@@ -20,21 +20,21 @@ const Detail = () => {
   const id = params.id
   const navigate = useNavigate()
   const { getViews } = useBlogCall()
-  //const {userId} = useSelector((state)=>state.auth)
   useEffect(() => {
     console.log("detail");
     getViews("blogs", id);
   }, [])
-
-  const { blogs } = useSelector((state) => state.blog)
-  console.log(blogs);
-  const blogById = blogs.filter((item)=>item.id==id)
-  console.log(blogById);
-  //console.log("blogdetail", blogs);
   
-  // const userData = blogs.likes_n
-  // console.log(userData);
-  // userData?.map((item)=>item.includes(userId))
+  const { blogs } = useSelector((state) => state.blog)
+  // console.log(blogs);
+  const blogById = blogs.filter((item)=>item.id==id)
+  // console.log(blogById);
+  const {userId} = useSelector((state)=>state.auth)
+  const likes = blogById[0]?.likes_n
+  const likesArray = likes?.map((item)=>item.user_id)
+  console.log(likesArray);
+  const heart = likesArray?.includes(userId)
+  console.log(heart);
 
   return (
     <>
@@ -73,10 +73,15 @@ const Detail = () => {
           textAlign: "center"
         }}>
           <Box>
+            {heart?
             <IconButton aria-label="add to favorites" >
-              <FavoriteIcon />
-              <Typography sx={likeButton}>{blogById[0]?.likes}</Typography>
-            </IconButton>
+              <FavoriteIcon sx={{color:"#d50000"}} />
+              <Typography  sx={likeButton}>{blogById[0]?.likes}</Typography>
+            </IconButton>:
+            <IconButton aria-label="add to favorites" >
+            <FavoriteIcon />
+            <Typography sx={likeButton}>{blogById[0]?.likes}</Typography>
+          </IconButton>}
             <IconButton aria-label="share">
               <Typography sx={likeButton}>{blogById[0]?.post_views}</Typography>
               <PreviewIcon />
