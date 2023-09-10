@@ -62,7 +62,7 @@ const Password = () => {
                                         value={values.new_password2}
                                         onBlur={handleBlur}
                                         error={touched.email && Boolean(errors.email)}
-                                        autoFocus
+                                        
                                         sx={{ mt: 1, }}
                                     />
                                     <Button

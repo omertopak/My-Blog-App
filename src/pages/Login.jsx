@@ -96,7 +96,7 @@ const Login = () => {
                                         type="email"
                                         id="email"
                                         autoComplete="Email"
-                                        autoFocus
+                                        
                                         onChange={handleChange}
                                         value={values.email}
                                         onBlur={handleBlur}

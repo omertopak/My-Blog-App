@@ -119,7 +119,7 @@ const Register = () => {
                                     label="Last Name"
                                     name="last_name"
                                     autoComplete="last_name"
-                                    autoFocus
+                            
                                     onChange={handleChange}
                                     value={values.last_name}
                                     onBlur={handleBlur}
@@ -134,7 +134,7 @@ const Register = () => {
                                     label="e-mail"
                                     name="email"
                                     autoComplete="email"
-                                    autoFocus
+                            
                                     onChange={handleChange}
                                     value={values.email}
                                     onBlur={handleBlur}
@@ -149,7 +149,7 @@ const Register = () => {
                                     label="Image"
                                     name="image"
                                     autoComplete="image"
-                                    autoFocus
+                            
                                     onChange={handleChange}
                                     value={values.image}
                                     onBlur={handleBlur}
@@ -163,7 +163,7 @@ const Register = () => {
                                     label="Bio"
                                     name="bio"
                                     autoComplete="bio"
-                                    autoFocus
+                            
                                     onChange={handleChange}
                                     value={values.bio}
                                     onBlur={handleBlur}
