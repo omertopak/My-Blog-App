@@ -1,6 +1,6 @@
 import { Box, Typography, Button, Paper } from '@mui/material';
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import useBlogCall from "../hooks/useBlogCall"
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux'
@@ -13,7 +13,8 @@ import CommentIcon from '@mui/icons-material/Comment';
 import { likeButton } from '../style/theme';
 import { Link } from 'react-router-dom';
 import CardMedia from '@mui/material/CardMedia';
-
+import CopyToClipboard from "react-copy-to-clipboard"
+import { toastSuccessNotify } from '../helper/ToastNotify';
 const Detail = () => {
   const params = useParams()
   // console.log("params=",params.id);
@@ -22,7 +23,7 @@ const Detail = () => {
   const { getViews } = useBlogCall()
   const { like } = useBlogCall()
   useEffect(() => {
-    console.log("detail");
+    // console.log("detail");
     getViews("blogs", id);
   }, [])
   
@@ -42,6 +43,8 @@ const Detail = () => {
     like("likes",id)
   }
 
+  const location = window.location.href 
+  // console.log(location);
   return (
     <>
       <Box m={8} sx={{
@@ -76,9 +79,9 @@ const Detail = () => {
         <CardActions sx={{
           display: "flex",
           justifyContent: 'space-between',
-          textAlign: "center"
+          textAlign: "center",
         }}>
-          <Box>
+          <Box >
             {heart?
             <IconButton onClick={()=>handleClick()} aria-label="add to favorites" >
               <FavoriteIcon sx={{color:"#d50000"}} />
@@ -96,7 +99,8 @@ const Detail = () => {
               <CommentIcon />
               <Typography sx={likeButton}>{blogById[0]?.comment_count}</Typography>
             </IconButton>
-            <IconButton aria-label="share">
+            <CopyToClipboard text={location} >
+              <IconButton aria-label="share" onClick={()=>toastSuccessNotify("Address copied")}>
               <ShareIcon />
               <Typography sx={{
                 position: "absolute",
@@ -104,6 +108,8 @@ const Detail = () => {
                 right: "-1px",
               }}></Typography>
             </IconButton>
+            </CopyToClipboard>
+            
           </Box>
           <Link to={-1}> <Button variant='contained'>Go Back</Button></Link>
           {/* <Button variant='contained' onClick={() => navigate(-1)}>GO BACK</Button> */}
