@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Avatar, Typography, Box, Button } from "@mui/material";
-
+import { Outlet } from 'react-router';
 const Profile = () => {
     const {userInfo} = useSelector((state)=>state.auth)
     console.log(userInfo);
@@ -23,8 +23,7 @@ const Profile = () => {
      
       </Box>
       <Box width="50%">
-        <Typography textAlign="left" mb={5}>BIOGRAPHY</Typography>
-        <Typography textAlign="left" variant="body1">{userInfo.user.bio}</Typography>
+        <Outlet/>
       </Box>
     </Box>
   )

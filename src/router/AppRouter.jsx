@@ -9,19 +9,22 @@ import About from '../pages/About';
 import Detail from '../pages/Detail';
 import NewBlog from '../pages/NewBlog';
 import Profile from '../pages/Profile';
+import Bio from '../components/Bio';
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="register" element={<Register />} />
         <Route element={<PrivateRouter />}>
           <Route element={<Header />}>
-            <Route path="/ink" element={<Home />} />
-            <Route path="/detail/:id" element={<Detail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/newblog" element={<NewBlog />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="ink" element={<Home />} />
+            <Route path="detail/:id" element={<Detail />} />
+            <Route path="about" element={<About />} />
+            <Route path="newblog" element={<NewBlog />} />
+            <Route path="profile" element={<Profile />} >
+              <Route index element={<Bio/>}/>
+            </Route>
           </Route>
         </Route>
       </Routes>
