@@ -58,16 +58,16 @@ const Header = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button onClick={() => navigate("/ink")} sx={[{ color: "black" }, shadow2]}>
             <DrawIcon fontSize='large' />
-            <Typography variant='h5' >INK</Typography></Button>
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h5' >INK</Typography></Button>
         </Box>
         <Icons>
           {/* <Button onClick={() => navigate("/ink")} sx={[{ color: "black" }, shadow2]}><NewspaperIcon />
             <Typography variant='h6'>Home</Typography></Button> */}
           <Button onClick={() => navigate("/newblog")} sx={[{ color: "black" }, shadow2]}><StickyNote2Icon />
-            <Typography variant='h6'>New Blog</Typography></Button>
-          <Button sx={[{ color: "black" }, shadow2]}
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>New Blog</Typography></Button>
+          <Button sx={[{fontFamily: 'Monospace', color: "black" }, shadow2]}
             onClick={() => navigate("/about")}><PermIdentityIcon />
-            <Typography variant='h6'>About</Typography></Button>
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>About</Typography></Button>
 
           <Avatar sx={shadow2} src={image} onClick={e => setOpen(true)} />
         </Icons>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div style={{textAlign:"center",padding:"1rem", color:"#37474f"}}>
+    <div style={{textAlign:"center",padding:"1rem", color:"#37474f",fontFamily: 'Monospace'}}>
     <h2>About Ink</h2>
     <p>Welcome to Ink, your online source for thought-provoking content and inspiration. We are on a journey to explore the world of ideas, knowledge, and creativity, and we're thrilled to have you along for the ride.</p>
 

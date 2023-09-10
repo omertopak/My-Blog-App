@@ -54,9 +54,18 @@ const useAuthCall = () => {
     }
   }
 
+  const changePass = async (userdata)=>{
+    dispatch(fetchStart())
+    try {
+    const {data} = await axiosPublic.post(`/users/auth/password/change/`,userdata)
+    toastSuccessNotify("Password Changed Successfully")
 
+    } catch (error) {
+      toastErrorNotify("Unsuccesfull")
+    }
+  }
 
-  return {login,register,logout}
+  return {login,register,logout,changePass}
 }
 
 export default useAuthCall
