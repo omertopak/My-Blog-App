@@ -89,7 +89,7 @@ const Header = () => {
           horizontal: 'left',
         }}
       >
-        <MenuItem >Profile</MenuItem>
+        <MenuItem onClick={()=>navigate("/profile")}>Profile</MenuItem>
         <MenuItem >My Blogs</MenuItem>
         <MenuItem onClick={() => logout()}>Logout</MenuItem>
       </Menu>
