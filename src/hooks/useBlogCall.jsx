@@ -57,6 +57,21 @@ const useAuthCall = () => {
     }
   }
 
+  const newBlog = async (data) => {
+    // dispatch(fetchStart())
+    try {
+      // await axiosWithToken.post(`/api/${url}/${id}/`)
+      // toastSuccessNotify("get data by id calisti")
+      // getData("blogs")
+      console.log(data);
+      
+
+    } catch (error) {
+      // dispatch(fetchFail())
+      // console.log(error)
+      // toastErrorNotify("HATA")
+    }
+  }
   //   const logout = async () => {
   //     dispatch(fetchStart())
   //     try {
@@ -73,7 +88,7 @@ const useAuthCall = () => {
 
 
 
-  return { getData,getViews,like }
+  return { getData,getViews,like ,newBlog}
 }
 
 export default useAuthCall

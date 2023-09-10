@@ -34,7 +34,7 @@ const Password = () => {
                             <Form >
                                 
                                     <TextField
-                                    variant="filled"
+                                        variant="filled"
                                         margin="normal"
                                         required
                                         fullWidth
@@ -50,7 +50,7 @@ const Password = () => {
                                         sx={{ mt: 1, }}
                                     />
                                      <TextField
-                                     variant="filled"
+                                        variant="filled"
                                         margin="normal"
                                         required
                                         fullWidth
