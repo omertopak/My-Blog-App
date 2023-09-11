@@ -7,11 +7,10 @@ import Grid from "@mui/material/Grid";
 import { Form, Formik } from 'formik';
 import useAuthCall from "../hooks/useAuthCall";
 import { shadow2 } from "../style/theme";
-
+import { inputLabelClasses } from "@mui/material/InputLabel";
 
 const Password = () => {
     const { changePass } = useAuthCall()
-
     return (
 
         <Box style={{width:"80%"}}>
@@ -48,6 +47,17 @@ const Password = () => {
                                         error={touched.email && Boolean(errors.email)}
                                         autoFocus
                                         sx={{ mt: 1, }}
+                                        InputLabelProps={{
+                                            sx: {
+                                              // set the color of the label when not shrinked
+                                              color: "red",
+                                              [`&.${inputLabelClasses.shrink}`]: {
+                                                // set the color of the label when shrinked (usually when the TextField is focused)
+                                                color: "orange"
+                                              }
+                                            }
+                                          }}
+                                        
                                     />
                                      <TextField
                                         variant="filled"

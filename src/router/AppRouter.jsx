@@ -17,7 +17,7 @@ const AppRouter = () => {
       <Routes>
         <Route path="" element={<Login />} />
         <Route path="register" element={<Register />} />
-        {/* <Route element={<PrivateRouter />}> */}
+        <Route element={<PrivateRouter />}>
           <Route element={<Header />}>
             <Route path="ink" element={<Home />} />
             <Route path="detail/:id" element={<Detail />} />
@@ -27,7 +27,7 @@ const AppRouter = () => {
               <Route index element={<Bio/>}/>
               <Route path="password" element={<Password/>}/>
             </Route>
-          {/* </Route> */}
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

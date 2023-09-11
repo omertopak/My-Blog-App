@@ -8,6 +8,7 @@ const dataSlice = createSlice({
         error:false,
         token:null,
         blogs:[],
+        categories:[],
     },
 
     reducers:{
@@ -20,9 +21,7 @@ const dataSlice = createSlice({
             state[payload?.url]=payload?.data;
             state.loading = false;
         },
-        // logoutSuccess:()=>{
-            
-        // },
+        
         fetchFail:(state)=>{
             state.loading = false;
             state.error = true;

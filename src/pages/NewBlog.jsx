@@ -2,17 +2,27 @@ import React from 'react'
 import { Card, CardContent, CardMedia, Typography, Chip, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormHelperText, Box } from '@mui/material';
 import { Form, Formik } from 'formik';
 import useBlogCall from "../hooks/useBlogCall"
+import { number } from 'yup';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const NewBlog = () => {
   const { newBlog } = useBlogCall()
+  const { getData } = useBlogCall()
+  useEffect(() => {
+    getData("categories")
+  }, [])
+  
+  const {categories} = useSelector((state)=>state.blog)
+  // console.log(categories);
+
   return (
     <Box >
       <Formik
-        initialValues={{ title: "", content: "", image: "",category: "",image: "",status:"" }}
+        initialValues={{ title: "", content: "", image: "",category:"",slug:"",status:"" }}
 
         onSubmit={(values, action) => {
-          console.log(values);
-          // newBlog(values)
+          newBlog(values)
           console.log(values);
           action.resetForm()
           action.setSubmitting(false)
@@ -34,7 +44,8 @@ const NewBlog = () => {
               onBlur={handleBlur}
               autoFocus
               // onChange={(e) => setTitle(e.target.value)}
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, }}
+              // inputProps={{ style: { fontFamily: 'nunito', color: 'purple' } }}
             />
             <TextField
               label="Content"
@@ -58,23 +69,32 @@ const NewBlog = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               // onChange={(e) => setImage(e.target.value)}
-              sx={{ mt: 2 }}
+              sx={{ mt: 2}}
             />
-            <TextField
-              label="Category"
-              fullWidth
-              name="category"
-              value={values.category}
-              required
-              onChange={handleChange}
-              onBlur={handleBlur}
-              // onChange={(e) => setCategory(e.target.value)}
-              sx={{ mt: 2 }}
-            />
+            
 
             <FormControl fullWidth sx={{ mt: 2 }}>
               {/* <FormHelperText>Status</FormHelperText> */}
-              <InputLabel id="status" sx={{opacity:"0.4"}}>Status</InputLabel>
+              <InputLabel id="category" >Categories</InputLabel>
+              <Select
+                labelId='category'
+                label="Category"
+                value={values.category || ""}
+                name='category'
+                onChange={handleChange}
+                required
+              // onChange={(e) => setStatus(e.target.value)} 
+              >
+                {categories.map((item)=>
+                  <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                  )}
+                
+                
+              </Select>
+            </FormControl>
+            <FormControl fullWidth sx={{ mt: 2 }}>
+              {/* <FormHelperText>Status</FormHelperText> */}
+              <InputLabel id="status" >Status</InputLabel>
               <Select
                 labelId='status'
                 label="status"
@@ -84,8 +104,8 @@ const NewBlog = () => {
               // onChange={(e) => setStatus(e.target.value)} 
               >
                 {/* <MenuItem value="">Status</MenuItem> */}
-                <MenuItem value="publish">Publish</MenuItem>
-                <MenuItem value="draft">Draft</MenuItem>
+                <MenuItem value="p">Publish</MenuItem>
+                <MenuItem value="d">Draft</MenuItem>
               </Select>
             </FormControl>
             <Button variant="contained" color="primary" type="submit" sx={{ mt: 2, }}>

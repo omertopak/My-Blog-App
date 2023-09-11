@@ -17,7 +17,7 @@ const useAuthCall = () => {
       dispatch(getDataSuccess({ data, url }))
       //toastSuccessNotify("get data calisti")
       //console.log("get data calisti");
-      // console.log(data);
+      console.log(url,data);
       
 
     } catch (error) {
@@ -53,41 +53,26 @@ const useAuthCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       console.log(error)
-      toastErrorNotify("HATA")
+      toastErrorNotify("Error!")
     }
   }
 
   const newBlog = async (data) => {
-    // dispatch(fetchStart())
+    dispatch(fetchStart())
     try {
-      // await axiosWithToken.post(`/api/${url}/${id}/`)
-      // toastSuccessNotify("get data by id calisti")
-      // getData("blogs")
-      console.log(data);
+      await axiosWithToken.post(`/api/blogs/`,data)
+      toastSuccessNotify("New Post Created")
+      getData("blogs")
+      navigate("/ink")
       
 
     } catch (error) {
-      // dispatch(fetchFail())
-      // console.log(error)
-      // toastErrorNotify("HATA")
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("Error!")
     }
   }
-  //   const logout = async () => {
-  //     dispatch(fetchStart())
-  //     try {
-  //       await axiosPublic.post(`/users/auth/logout/`)
-  //       dispatch(logoutSuccess())
-  //       toastSuccessNotify("logout islemi basarili")
-  //       navigate("/")
-  //     } catch (error) {
-  //       console.log(error)
-  //       dispatch(fetchFail())
-  //       toastErrorNotify("Logout islemi basarisiz")
-  //     }
-  //   }
-
-
-
+ 
   return { getData,getViews,like ,newBlog}
 }
 

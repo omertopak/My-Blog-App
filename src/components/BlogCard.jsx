@@ -36,7 +36,7 @@ const BlogCard=() =>{
     <>
      {blogs?.map((blog)=>(
      
-     <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1" }}>
+     <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1",alignContent:"center" }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -48,10 +48,9 @@ const BlogCard=() =>{
       />
       <CardMedia
         component="img"
-        height="194"
         image={blog?.image}
-        alt="Paella dish"
-        sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",marginTop:"1rem"}}
+        alt="Not found"
+        sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",width:"20rem",height:"15rem"}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" overflow="hidden" mb={3} sx={ellipsis}>
