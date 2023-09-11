@@ -35,12 +35,10 @@ const Published=() =>{
     <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',height:"30rem",overflow:"scroll"}}>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow3} key={blog?.id} sx={{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",alignContent:"center",maxHeight:350 }}>
-      <CardHeader
+     <Card style={shadow3} key={blog?.id} sx={{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}}>
+      <CardHeader 
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            
-          </Avatar>
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
         }
         title={blog?.author}
         subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
@@ -49,14 +47,14 @@ const Published=() =>{
         component="img"
         image={blog?.image}
         alt="Not found"
-        sx={{objectFit:"contain",padding:"3px",marginBottom:"0.2rem",width:"15rem",height:"12rem"}}
+        sx={{objectFit:"contain",padding:"3px",marginBottom:"0.2rem",width:"15rem",height:"10rem",margin:"auto"}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" overflow="hidden" sx={ellipsis1}>
         {blog?.content}
         </Typography>
       </CardContent>
-      <Box sx={{display:"flex",alignItems:"center",marginBottom:"0.3rem" }} justifyContent="space-between"  m p >
+      <Box sx={{display:"flex",alignItems:"center",marginBottom:"0.3rem" }} justifyContent="space-between"   p >
       <CardActions >
         <IconButton  aria-label="add to favorites">
           <FavoriteIcon sx={{fontSize:'1.3rem'}}  />
