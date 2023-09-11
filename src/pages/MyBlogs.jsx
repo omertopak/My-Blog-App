@@ -33,7 +33,7 @@ const MyBlogs = () => {
                 </Box>
             </Box>
 
-            <Box width="50%">
+            <Box width="65%">
                 <Outlet />
             </Box>
         </Box>
