@@ -27,12 +27,13 @@ const Published=() =>{
     myBlog(userId,"myblogs");
   }, [])
   const {myblogs} = useSelector((state)=>state.blog)
-
-  console.log(myblogs);
-  
+  const myblogsP = myblogs.filter((item)=>item.status=="p")
+//   console.log(myblogs);
+//   console.log(myblogsP);
+  const reversed = [...myblogsP].reverse();
   return (
     <>
-     {myblogs?.map((blog)=>(
+     {reversed?.map((blog)=>(
      
      <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1",alignContent:"center" }}>
       <CardHeader
