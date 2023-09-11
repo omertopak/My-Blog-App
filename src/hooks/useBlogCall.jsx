@@ -1,4 +1,4 @@
-import { fetchFail, fetchStart, getDataSuccess } from '../features/dataSlice'
+import { fetchFail, fetchStart, getDataSuccess,getMyDataSuccess } from '../features/dataSlice'
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
 import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
@@ -72,8 +72,23 @@ const useAuthCall = () => {
       toastErrorNotify("Error!")
     }
   }
+  const myBlog = async (id,url) => {
+    dispatch(fetchStart())
+    try {
+      const data = await axiosWithToken.get(`/api/blogs/?author=${id}`)
+      // console.log(data);
+      dispatch(getMyDataSuccess({ data, url }))
+      
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("Error!")
+    }
+  }
  
-  return { getData,getViews,like ,newBlog}
+  return { getData,getViews,like ,newBlog,myBlog}
 }
 
 export default useAuthCall

@@ -11,6 +11,9 @@ import NewBlog from '../pages/NewBlog';
 import Profile from '../pages/Profile';
 import Bio from '../components/Bio';
 import Password from '../components/Password';
+import MyBlogs from '../pages/MyBlogs';
+import Published from '../components/Published';
+import Drafts from '../components/Drafts';
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -26,6 +29,10 @@ const AppRouter = () => {
             <Route path="profile" element={<Profile />} >
               <Route index element={<Bio/>}/>
               <Route path="password" element={<Password/>}/>
+            </Route>
+            <Route path="myblogs" element={<MyBlogs />} >
+            <Route index element={<Published/>}/>
+              <Route path="drafts" element={<Drafts/>}/>
             </Route>
           </Route>
         </Route>

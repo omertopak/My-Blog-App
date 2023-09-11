@@ -61,8 +61,8 @@ const Header = () => {
             <Typography sx={{fontFamily: 'Monospace'}} variant='h5' >INK</Typography></Button>
         </Box>
         <Icons>
-          {/* <Button onClick={() => navigate("/ink")} sx={[{ color: "black" }, shadow2]}><NewspaperIcon />
-            <Typography variant='h6'>Home</Typography></Button> */}
+          <Button onClick={() => navigate("/myblogs")} sx={[{ color: "black" }, shadow2]}><NewspaperIcon />
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>My Blogs</Typography></Button>
           <Button onClick={() => navigate("/newblog")} sx={[{ color: "black" }, shadow2]}><StickyNote2Icon />
             <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>New Blog</Typography></Button>
           <Button sx={[{fontFamily: 'Monospace', color: "black" }, shadow2]}
