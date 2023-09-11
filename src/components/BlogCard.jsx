@@ -29,12 +29,12 @@ const BlogCard=() =>{
   const {blogs} = useSelector((state)=>state.blog)
   console.log(blogs);
   const navigate = useNavigate()
-  
+  const reversed = [...blogs].reverse();
   const {userId} = useSelector((state)=>state.auth)
   // console.log(userId);
   return (
     <>
-     {blogs?.map((blog)=>(
+     {reversed?.map((blog)=>(
      
      <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1",alignContent:"center" }}>
       <CardHeader
