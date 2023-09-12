@@ -67,11 +67,7 @@ const Drafts=() =>{
         </IconButton>
       </CardActions>
       <Link to={`/detail/${blog?.id}`}> <Button  sx={{fontSize:'0.5rem'}} variant='contained'>READ MORE</Button></Link>
-      {/* <Button variant='contained' onClick={() => navigate(`/detail/${blog.id}`)}>READ MORE</Button> */}
-      {/* <Button
-        onClick={() => navigate(`/detail/${blog.id}`, { state: blog })}>
-        View More
-      </Button> */}
+      
       </Box>
     </Card>
     ))}
