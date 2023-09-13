@@ -17,7 +17,7 @@ const useAuthCall = () => {
       dispatch(getDataSuccess({ data, url }))
       //toastSuccessNotify("get data calisti")
       //console.log("get data calisti");
-      console.log(url,data);
+      // console.log(url,data);
       
 
     } catch (error) {

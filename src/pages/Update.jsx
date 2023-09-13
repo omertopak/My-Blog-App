@@ -8,16 +8,25 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 const Update = () => {
     const params = useParams()
+    // console.log("params",params);
     const id = params.id
-
-  const { newBlog } = useBlogCall()
-  const { getData } = useBlogCall()
-  useEffect(() => {
-    getData("categories")
-  }, [])
-  
-  const {categories} = useSelector((state)=>state.blog)
-  // console.log(categories);
+    const {userId} = useSelector((state)=>state.auth)
+    const {author} = useSelector((state)=>state.auth)
+    const { updateBlog } = useBlogCall()
+    const { getData } = useBlogCall()
+    const { myBlog } = useBlogCall()
+    useEffect(() => {
+        getData("categories")
+        myBlog(userId,"myblogs")  
+    }, [])
+    
+    const {categories} = useSelector((state)=>state.blog)
+    // console.log(categories);
+    const {myblogs} = useSelector((state)=>state.blog)
+    // console.log(myblogs);
+    const updates = myblogs.filter((item)=>item.id==id)
+    console.log(updates);
+    // blogData = myblogs.filter
 
   return (
     <Box >
@@ -25,7 +34,7 @@ const Update = () => {
         initialValues={{ title: "", content: "", image: "",category:"",slug:"",status:"" }}
 
         onSubmit={(values, action) => {
-          newBlog(values)
+          updateBlog(values)
           console.log(values);
           action.resetForm()
           action.setSubmitting(false)
@@ -41,7 +50,7 @@ const Update = () => {
               label="Title"
               fullWidth
               name="title"
-              value={values.title}
+              value={updates.title}
               required
               onChange={handleChange}
               onBlur={handleBlur}
