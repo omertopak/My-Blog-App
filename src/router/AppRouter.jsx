@@ -14,6 +14,7 @@ import Password from '../components/Password';
 import MyBlogs from '../pages/MyBlogs';
 import Published from '../components/Published';
 import Drafts from '../components/Drafts';
+import Update from '../pages/Update';
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -34,6 +35,7 @@ const AppRouter = () => {
             <Route index element={<Published/>}/>
               <Route path="drafts" element={<Drafts/>}/>
             </Route>
+              <Route path="update/:id" element={<Update/>}/>
           </Route>
         </Route>
       </Routes>

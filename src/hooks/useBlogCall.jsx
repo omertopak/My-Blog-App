@@ -72,6 +72,21 @@ const useAuthCall = () => {
       toastErrorNotify("Error!")
     }
   }
+  const updateBlog = async (data,id) => {
+    dispatch(fetchStart())
+    try {
+      await axiosWithToken.put(`/api/blogs/${id}`,data)
+      toastSuccessNotify("Post Updated")
+      getData("blogs")
+      navigate("myblogs")
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("Error!")
+    }
+  }
   const myBlog = async (id,url) => {
     dispatch(fetchStart())
     try {
@@ -88,7 +103,7 @@ const useAuthCall = () => {
     }
   }
  
-  return { getData,getViews,like ,newBlog,myBlog}
+  return { getData,getViews,like ,newBlog,myBlog,updateBlog}
 }
 
 export default useAuthCall

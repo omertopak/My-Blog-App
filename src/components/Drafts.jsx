@@ -66,7 +66,7 @@ const Drafts=() =>{
           <PreviewIcon sx={{fontSize:'1.3rem'}}/>
         </IconButton>
       </CardActions>
-      <Link to={`/detail/${blog?.id}`}> <Button  sx={{fontSize:'0.5rem'}} variant='contained'>READ MORE</Button></Link>
+      <Link to={`/update/${blog?.id}`}> <Button  sx={{fontSize:'0.5rem'}} variant='contained'>Update</Button></Link>
       
       </Box>
     </Card>
