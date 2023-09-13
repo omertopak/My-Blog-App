@@ -32,7 +32,6 @@ const Detail = () => {
   const blogById = blogs.filter((item)=>item.id==id)
   // console.log(blogById);
   const {userId} = useSelector((state)=>state.auth)
-  
   const likes = blogById[0]?.likes_n
   const likesArray = likes?.map((item)=>item.user_id)
   // console.log(likesArray);

@@ -58,16 +58,16 @@ const Header = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button onClick={() => navigate("/ink")} sx={[{ color: "black" }, shadow2]}>
             <DrawIcon fontSize='large' />
-            <Typography sx={{fontFamily: 'Monospace'}} variant='h5' >INK</Typography></Button>
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h6' >INK</Typography></Button>
         </Box>
         <Icons>
           <Button onClick={() => navigate("/myblogs")} sx={[{ color: "black" }, shadow2]}><NewspaperIcon />
-            <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>My Blogs</Typography></Button>
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h7'>My Blogs</Typography></Button>
           <Button onClick={() => navigate("/newblog")} sx={[{ color: "black" }, shadow2]}><StickyNote2Icon />
-            <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>New Blog</Typography></Button>
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h7'>New Blog</Typography></Button>
           <Button sx={[{fontFamily: 'Monospace', color: "black" }, shadow2]}
             onClick={() => navigate("/about")}><PermIdentityIcon />
-            <Typography sx={{fontFamily: 'Monospace'}} variant='h6'>About</Typography></Button>
+            <Typography sx={{fontFamily: 'Monospace'}} variant='h7'>About</Typography></Button>
 
           <Avatar sx={shadow2} src={image} onClick={e => setOpen(true)} />
         </Icons>

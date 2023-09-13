@@ -18,20 +18,31 @@ import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
 import { shadow } from '../style/theme';
 import { ellipsis } from '../style/theme';
+import { boolean } from 'yup';
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
   useEffect(() => {
-    
-    console.log("blogcard daki clg");
+    // console.log("blogcard daki clg");
     getData("blogs");
- 
   }, [])
   const {blogs} = useSelector((state)=>state.blog)
-  console.log(blogs);
+  // console.log(blogs);
   const navigate = useNavigate()
   const reversed = [...blogs].reverse();
+
+  //LIKE BUTTONS
   const {userId} = useSelector((state)=>state.auth)
-  // console.log(userId);
+  //console.log(userId);
+  
+  
+  reversed.map((item)=>{
+    if(item.likes){
+      console.log("true")}
+      else{console.log("false"); }
+    })
+  
+  // const likesData = likes?.map((item)=>item.user_id)
+  // console.log("likesdata",likesData);
   return (
     <>
      {reversed?.map((blog)=>(
@@ -58,7 +69,7 @@ const BlogCard=() =>{
         </Typography>
       </CardContent>
       <Box sx={{display:"flex",alignItems:"center",marginBottom:"0.5rem" }} justifyContent="space-between"  m p >
-      <CardActions >
+      <CardActions >     
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
