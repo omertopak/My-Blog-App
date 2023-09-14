@@ -52,7 +52,7 @@ export const ellipsis1 = {
     maxWidth: '100%',
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
-    WebkitLineClamp: 2,
+    WebkitLineClamp: 1,
     overflow: 'hidden',
     textOverflow: 'ellipsis',
 }

@@ -20,6 +20,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const Published=() =>{  
   const { myBlog } = useBlogCall()
   const { del } = useBlogCall()
+
   const handleClick = (blogId)=>{
     del(blogId)
   }
@@ -36,12 +37,13 @@ const Published=() =>{
     <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',height:"30rem",overflow:"scroll"}}>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow3} key={blog?.id} sx={{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}}>
-      <CardHeader sx={{textAlign:"left"}}
+     <Card style={shadow3} key={blog?.id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
+      <CardHeader sx={[{textAlign:"left"}]}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
         }
-        title={blog?.title}
+        
+        title={blog?.title.substring(0,23)}
         subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
       />
       <CardMedia

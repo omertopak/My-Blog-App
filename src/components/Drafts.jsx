@@ -21,8 +21,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const Drafts=() =>{  
   const { myBlog } = useBlogCall()
   const { del } = useBlogCall()
+  
   const handleClick = (blogId)=>{
-    del(blogId).then(refresh())
+    del(blogId)
   }
   const {userId} = useSelector((state)=>state.auth)
   useEffect(() => {
@@ -37,7 +38,7 @@ const Drafts=() =>{
     <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',height:"30rem",overflow:"scroll"}}>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow3} key={blog?.id} sx={{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}}>
+     <Card style={shadow3} key={blog?.id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
       <CardHeader sx={{textAlign:"left"}}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>

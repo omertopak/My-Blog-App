@@ -61,7 +61,7 @@ const BlogCard=() =>{
         component="img"
         image={blog?.image}
         alt="Not found"
-        sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",width:"20rem",height:"15rem"}}
+        sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",width:"20rem",height:"15rem",margin:"auto"}}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary" m={1} mb={3} sx={ellipsis}>
