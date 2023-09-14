@@ -17,8 +17,8 @@ const Home = () => {
   
 
   return (
-    <Box sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row'}} width="100vw" > 
-      <BlogCard/> 
+    <Box sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',padding:"6px"}} width="100vw" > 
+      <BlogCard /> 
       {/* <News/>  */}
     </Box>
   )

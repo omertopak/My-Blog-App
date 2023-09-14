@@ -61,9 +61,9 @@ const Login = () => {
                         initialValues={{ username: "", email: "", password: "" }}
 
                         onSubmit={(values, action) => {
-                            console.log(values);
+                            // console.log(values);
                             login(values)
-                            console.log(values);
+                            // console.log(values);
                             action.resetForm()
                             action.setSubmitting(false)
                         }}

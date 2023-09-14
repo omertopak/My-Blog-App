@@ -47,8 +47,8 @@ const BlogCard=() =>{
     <>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1",alignContent:"center" }}>
-      <CardHeader
+     <Card style={shadow} key={blog?.id} sx={{ maxWidth: 345,margin:"15px",backgroundColor:"#eceff1",alignContent:"center",transform:"scale(0.9)"}}>
+      <CardHeader 
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             
@@ -64,7 +64,7 @@ const BlogCard=() =>{
         sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",width:"20rem",height:"15rem"}}
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary" overflow="hidden" mb={3} sx={ellipsis}>
+        <Typography variant="body2" color="text.secondary" m={1} mb={3} sx={ellipsis}>
         {blog?.content}
         </Typography>
       </CardContent>

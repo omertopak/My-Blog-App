@@ -11,10 +11,10 @@ const Update = () => {
     // console.log("params",params);
     const id = params.id
     const {userId} = useSelector((state)=>state.auth)
-    const {author} = useSelector((state)=>state.auth)
     const { updateBlog } = useBlogCall()
     const { getData } = useBlogCall()
     const { myBlog } = useBlogCall()
+    
     useEffect(() => {
         getData("categories")
         myBlog(userId,"myblogs")  
@@ -22,20 +22,26 @@ const Update = () => {
     
     const {categories} = useSelector((state)=>state.blog)
     // console.log(categories);
-    const {myblogs} = useSelector((state)=>state.blog)
+    const {myblogs} = useSelector((state)=>state?.blog)
     // console.log(myblogs);
-    const updates = myblogs.filter((item)=>item.id==id)
+    const updates = myblogs?.filter((item)=>item?.id==id)
     console.log(updates);
     // blogData = myblogs.filter
+    
+    // window.addEventListener('beforeunload', (event) => {
+    //   // Cancel the event as stated by the standard.
+    //   event.preventDefault();
+    //   // Chrome requires returnValue to be set.
+    //   event.returnValue = '';
+    // });
 
   return (
     <Box >
       <Formik
-        initialValues={{ title: "", content: "", image: "",category:"",slug:"",status:"" }}
-
+        initialValues={{ title: updates[0]?.title , content: updates[0]?.content, image: updates[0]?.image ,category:updates[0]?.category ,slug:"",status:updates[0]?.status }}
         onSubmit={(values, action) => {
-          updateBlog(values)
-          console.log(values);
+          updateBlog(values,id)
+          console.log(values,id);
           action.resetForm()
           action.setSubmitting(false)
         }}
@@ -50,7 +56,7 @@ const Update = () => {
               label="Title"
               fullWidth
               name="title"
-              value={updates.title}
+              value={values.title }
               required
               onChange={handleChange}
               onBlur={handleBlur}

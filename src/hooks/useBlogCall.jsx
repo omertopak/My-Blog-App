@@ -8,7 +8,8 @@ const useAuthCall = () => {
   const dispatch = useDispatch()
   const { axiosPublic, axiosWithToken } = useAxios()
   const navigate = useNavigate()
-
+ 
+  const refresh = () => window.location.reload(true)
 
   const getData = async (url) => {
     dispatch(fetchStart())
@@ -75,10 +76,10 @@ const useAuthCall = () => {
   const updateBlog = async (data,id) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.put(`/api/blogs/${id}`,data)
+      await axiosWithToken.patch(`/api/blogs/${id}/`,data)
       toastSuccessNotify("Post Updated")
       getData("blogs")
-      navigate("myblogs")
+      navigate(-1)
       
 
     } catch (error) {
@@ -102,8 +103,20 @@ const useAuthCall = () => {
       toastErrorNotify("Error!")
     }
   }
+  const del = async (id) => {
+    dispatch(fetchStart())
+    try {
+      await axiosWithToken.delete(`/api/blogs/${id}/`)
+      toastSuccessNotify("Deleted")
+      refresh()
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("Error!")
+    }
+  }
  
-  return { getData,getViews,like ,newBlog,myBlog,updateBlog}
+  return { getData,getViews,like ,newBlog,myBlog,updateBlog,del}
 }
 
 export default useAuthCall

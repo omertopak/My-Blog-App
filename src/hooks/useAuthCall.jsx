@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom"
 const useAuthCall = () => {
    const dispatch = useDispatch()
    const {axiosPublic} = useAxios() 
+   const {axiosWithToken} = useAxios() 
     const navigate = useNavigate()
 
 
@@ -57,7 +58,7 @@ const useAuthCall = () => {
   const changePass = async (userdata)=>{
     dispatch(fetchStart())
     try {
-    const {data} = await axiosPublic.post(`/users/auth/password/change/`,userdata)
+    await axiosWithToken.post(`/users/auth/password/change/`,userdata)
     toastSuccessNotify("Password Changed Successfully")
 
     } catch (error) {
