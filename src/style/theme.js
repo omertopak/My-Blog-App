@@ -56,3 +56,10 @@ export const ellipsis1 = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
 }
+export const borderb = {
+  borderBottom:" 0.25rem solid green",
+  // borderRight: "0.25rem solid green",
+  marginTop: "5%",
+  width: "40rem",
+  height: "100px",
+}
