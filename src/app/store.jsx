@@ -1,6 +1,7 @@
 import { configureStore ,getDefaultMiddleware} from '@reduxjs/toolkit'
 import authSlice from '../features/authSlice'
-import blogreducer from "../features/dataSlice"
+import blogReducer from "../features/dataSlice"
+import newsReducer from "../features/newsSlice"
 
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'  //bise vermezsek local de verirsek session(storage)
@@ -16,7 +17,8 @@ const persistedReducer = persistReducer(persistConfig, authSlice)
 const store = configureStore({
     reducer: {
         auth: persistedReducer,
-        blog: blogreducer,
+        blog: blogReducer,
+        news:newsReducer,
     },
     devTools: process.env.NODE_ENV !== "production",
     //hatayi kaldirdik

@@ -1,8 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const News = () => {
-    const newsPath = "https://newsapi.org/v2/top-headlines/sources?language=en&pageSize=10&apiKey="
-    
+    const {news} = useSelector((state)=>state.news)
+    console.log(news);
   return (
     <div>News</div>
   )
