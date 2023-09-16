@@ -14,8 +14,10 @@ const useNewsCall = () => {
     const getNews = async ()=>{
     dispatch(fetchStart())
     try {
-    const {data} = await newsWithToken()
+    const {data} = await newsWithToken.get()
+    console.log("getNews calisti");
     toastSuccessNotify("Successfully logged in")
+
     dispatch(getDataSuccess(data))
 
     } catch (error) {
@@ -28,7 +30,7 @@ const useNewsCall = () => {
 
  
 
-  return {}
+  return {getNews}
 }
 
 export default useNewsCall

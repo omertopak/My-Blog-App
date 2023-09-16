@@ -3,6 +3,7 @@ import BlogCard from '../components/BlogCard'
 import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import useBlogCall from "../hooks/useBlogCall"
+import News from '../components/News'
 const Home = () => {
   
   const { getData} = useBlogCall()
