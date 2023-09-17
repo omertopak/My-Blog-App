@@ -71,3 +71,9 @@ export const borderb = {
   width: "40rem",
   height: "100px",
 }
+export const borderb2 = {
+  borderBottom:" 0.25rem solid #455a64",
+  // borderRight: "0.25rem solid green",
+  marginTop: "5%",
+  height: "100px",
+}
