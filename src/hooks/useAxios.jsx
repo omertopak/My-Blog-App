@@ -13,8 +13,9 @@ const useAxios = () => {
       const axiosPublic = axios.create({
         baseURL: `${import.meta.env.VITE_BASE_URL}`,
       })
+
       const newsWithToken = axios.create({
-        baseURL: `${import.meta.env.VITE_BASE_API_KEY}`,
+        baseURL: `https://newsapi.org/v2/top-headlines?language=en&pageSize=10&apiKey=${import.meta.env.VITE_SOME_KEY}`
       })
       return { axiosWithToken, axiosPublic,newsWithToken}
     }

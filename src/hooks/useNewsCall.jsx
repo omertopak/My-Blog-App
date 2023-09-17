@@ -1,24 +1,23 @@
 import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
-import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
-import { useNavigate } from "react-router-dom"
-import { getDataSuccess,fetchStart,fetchFail } from '../features/newsSlice'
+import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
+
+import { getDataSuccess, fetchStart, fetchFail } from '../features/newsSlice'
 
 const useNewsCall = () => {
-   const dispatch = useDispatch()
-   const {newsWithToken} = useAxios() 
-   
-    const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { newsWithToken } = useAxios()
 
 
-    const getNews = async ()=>{
+
+  const getNews = async () => {
     dispatch(fetchStart())
     try {
-    const {data} = await newsWithToken.get()
-    console.log("getNews calisti");
-    toastSuccessNotify("Successfully logged in")
+      const { data } = await newsWithToken()
+      console.log("getNews calisti");
+      toastSuccessNotify("Successfully logged in")
 
-    dispatch(getDataSuccess(data))
+      dispatch(getDataSuccess(data))
 
     } catch (error) {
       dispatch(fetchFail())
@@ -28,9 +27,9 @@ const useNewsCall = () => {
   }
 
 
- 
 
-  return {getNews}
+
+  return { getNews }
 }
 
 export default useNewsCall
