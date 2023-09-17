@@ -15,7 +15,7 @@ const newsSlice = createSlice({
             state.error = false;
         },
         getDataSuccess:(state,{payload})=>{    
-            state.news=payload?.data;
+            state.news=payload?.articles;
             state.loading = false;
         }, 
         fetchFail:(state)=>{

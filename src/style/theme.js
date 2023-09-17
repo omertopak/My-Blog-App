@@ -56,8 +56,16 @@ export const ellipsis1 = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
 }
+export const ellipsis2 = {
+    maxWidth: '100%',
+    display: '-webkit-box',
+    WebkitBoxOrient: 'vertical',
+    WebkitLineClamp: 2,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+}
 export const borderb = {
-  borderBottom:" 0.25rem solid green",
+  borderBottom:" 0.25rem solid #455a64",
   // borderRight: "0.25rem solid green",
   marginTop: "5%",
   width: "40rem",

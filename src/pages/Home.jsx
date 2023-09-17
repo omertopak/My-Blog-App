@@ -18,9 +18,11 @@ const Home = () => {
   
 
   return (
-    <Box sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',padding:"6px"}} width="100vw" > 
-      <BlogCard /> 
-      <News/> 
+    <Box  sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly"}}>
+        <Box sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',padding:"6px"}} width="70vw" > 
+          <BlogCard /> 
+        </Box >
+        <News /> 
     </Box>
   )
 }

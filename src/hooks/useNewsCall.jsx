@@ -16,7 +16,7 @@ const useNewsCall = () => {
       const { data } = await newsWithToken()
       console.log("getNews calisti");
       toastSuccessNotify("Successfully logged in")
-
+      console.log(data);
       dispatch(getDataSuccess(data))
 
     } catch (error) {
