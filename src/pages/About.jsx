@@ -21,7 +21,7 @@ const About = () => {
         The art of problem-solving is deeply ingrained in our ethos. We thrive on tackling intricate challenges, breaking them down into manageable components, and devising ingenious solutions. Our unwavering commitment to producing clean, efficient, and maintainable content ensures that our readers not only gain immediate insights but also lay the foundation for future growth.
       </Typography>
       <Typography variant="body1" paragraph>
-        While we are passionate about the world of ideas, we also cherish the power of community.  Each article serves as a catalyst for discussion and exploration, and we invite you to be an active part of this vibrant intellectual community.
+        While we are passionate about the world of ideas, we also cherish the power of community. We encourage open dialogue, diverse perspectives, and the sharing of knowledge. Each article serves as a catalyst for discussion and exploration, and we invite you to be an active part of this vibrant intellectual community.
       </Typography>
       <Typography variant="body1" paragraph>
         Beyond the articles and essays, we are more than just words on a page. We're a group of inquisitive minds, explorers of knowledge, and creators of opportunities. Join us on this exhilarating journey of discovery, and together, we'll navigate the ever-evolving landscape of ideas and insights.
