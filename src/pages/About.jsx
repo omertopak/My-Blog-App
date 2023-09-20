@@ -12,7 +12,7 @@ const About = () => {
         Greetings and a warm welcome! We're excited to invite you on an extraordinary journey through the vast realm of knowledge. Our blog page is a treasure trove of thought-provoking content and inspirational articles that span across a wide spectrum of subjects.
       </Typography>
       <Typography variant="body1" paragraph>
-        At the heart of our mission lies a simple yet profound goal: to empower individuals with the insights and ideas they need to make a positive impact in their lives and the world around them. We firmly believe in the transformative power of knowledge and the sheer beauty of intellectual discovery.
+        At the heart of our mission lies a simple yet profound goal: to empower individuals with the insights and ideas they need to make a positive impact in their lives and the world around them.
       </Typography>
       <Typography variant="body1" paragraph>
         Every piece of content you'll encounter here is meticulously curated to serve as a conduit between ideas and reality. Whether we're unraveling the mysteries of cutting-edge technology, diving into the depths of scientific inquiry, or sharing the invaluable lessons of life, we approach each article as an opportunity to craft something that is both enlightening and practical.
