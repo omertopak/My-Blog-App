@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, CardContent, CardMedia, Typography, Chip, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormHelperText, Box } from '@mui/material';
 import { Form, Formik } from 'formik';
 import useBlogCall from "../hooks/useBlogCall"
-import { number } from 'yup';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
