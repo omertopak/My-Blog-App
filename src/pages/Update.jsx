@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardContent, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, FormHelperText, Box } from '@mui/material';
+import { CardContent, Typography, TextField, Button, FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
 import { Form, Formik } from 'formik';
 import useBlogCall from "../hooks/useBlogCall"
 import { useEffect } from 'react';
@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 const Update = () => {
     const params = useParams()
-    // console.log("params",params);
     const id = params.id
     const {userId} = useSelector((state)=>state.auth)
     const { updateBlog } = useBlogCall()
