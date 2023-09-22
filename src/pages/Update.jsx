@@ -109,7 +109,6 @@ const Update = () => {
               </Select>
             </FormControl>
             <FormControl fullWidth sx={{ mt: 2 }}>
-              {/* <FormHelperText>Status</FormHelperText> */}
               <InputLabel id="status" >Status</InputLabel>
               <Select
                 labelId='status'
