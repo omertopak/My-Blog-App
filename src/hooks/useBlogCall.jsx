@@ -92,7 +92,6 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
       const data = await axiosWithToken.get(`/api/blogs/?author=${id}`)
-      // console.log(data);
       dispatch(getMyDataSuccess({ data, url }))
       
       
