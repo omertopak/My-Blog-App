@@ -14,7 +14,6 @@ const NewBlog = () => {
   }, [])
   
   const {categories} = useSelector((state)=>state.blog)
-  // console.log(categories);
 
   return (
     <Box >
