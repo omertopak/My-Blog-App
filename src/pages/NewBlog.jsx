@@ -56,7 +56,6 @@ const NewBlog = () => {
               required
               onChange={handleChange}
               onBlur={handleBlur}
-              // onChange={(e) => setContent(e.target.value)}
               sx={{ mt: 2 }}
             />
             <TextField
