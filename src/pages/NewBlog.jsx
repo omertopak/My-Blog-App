@@ -42,7 +42,7 @@ const NewBlog = () => {
               onChange={handleChange}
               onBlur={handleBlur}
               autoFocus
-              // onChange={(e) => setTitle(e.target.value)}
+             
               sx={{ mt: 2, }}
               // inputProps={{ style: { fontFamily: 'nunito', color: 'purple' } }}
             />
