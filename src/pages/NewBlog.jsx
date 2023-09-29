@@ -99,7 +99,6 @@ const NewBlog = () => {
                 value={values.status || ""}
                 name='status'
                 onChange={handleChange}
-              // onChange={(e) => setStatus(e.target.value)} 
               >
                 {/* <MenuItem value="">Status</MenuItem> */}
                 <MenuItem value="p">Publish</MenuItem>
