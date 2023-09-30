@@ -81,7 +81,6 @@ const NewBlog = () => {
                 name='category'
                 onChange={handleChange}
                 required
-              // onChange={(e) => setStatus(e.target.value)} 
               >
                 {categories.map((item)=>
                   <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
