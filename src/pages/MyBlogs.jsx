@@ -53,4 +53,3 @@ export default MyBlogs
 //         "last_name": "Topak",
 //         "image": "https://previews.123rf.com/images/agnessz/agnessz1609/agnessz160900124/66083532-m%C3%A4nnlicher-avatar-mit-brille.jpg",
 //         "bio": "I am a frontend developer"
-//     }
