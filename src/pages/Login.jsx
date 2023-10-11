@@ -62,7 +62,6 @@ const Login = () => {
 
                         onSubmit={(values, action) => {
                             login(values)
-                            // console.log(values);
                             action.resetForm()
                             action.setSubmitting(false)
                         }}
