@@ -13,7 +13,6 @@ const Home = () => {
     getData("blogs")
   }, [])
 
-   //console.log(blogs);
  
   
 
