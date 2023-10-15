@@ -98,7 +98,7 @@ const NewBlog = () => {
                 name='status'
                 onChange={handleChange}
               >
-                {/* <MenuItem value="">Status</MenuItem> */}
+               
                 <MenuItem value="p">Publish</MenuItem>
                 <MenuItem value="d">Draft</MenuItem>
               </Select>
