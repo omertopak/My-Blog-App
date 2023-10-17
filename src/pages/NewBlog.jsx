@@ -43,7 +43,6 @@ const NewBlog = () => {
               autoFocus
              
               sx={{ mt: 2, }}
-              // inputProps={{ style: { fontFamily: 'nunito', color: 'purple' } }}
             />
             <TextField
               label="Content"
