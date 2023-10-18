@@ -46,7 +46,6 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.post(`/api/${url}/${id}/`)
-      // toastSuccessNotify("get data by id calisti")
       getData("blogs")
       
       
