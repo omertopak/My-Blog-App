@@ -69,7 +69,7 @@ const Register = () => {
                     </Typography>
                     <Formik
                         initialValues={{ username: "", first_name: "", last_name: "", email: "", image: "", bio: "", password: "", password2: "" }}
-                        // .  validate={registerSchema}
+                        //  validate={registerSchema}
                         onSubmit={(values, action) => {
                             console.log(values);
                             register(values)
