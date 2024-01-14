@@ -15,6 +15,7 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await axiosWithToken(`/api/${url}/`)
+      // console.log(data);
       dispatch(getDataSuccess({ data, url }))
       
      

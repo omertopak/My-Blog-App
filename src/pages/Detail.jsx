@@ -42,7 +42,7 @@ const Detail = () => {
   const heart = likesArray?.includes(userId)
   // console.log(heart);
   //COMMENTS
-  const comments = blogById[0]?.comments
+  const comments = blogById[0]?.comments ? blogById[0]?.comments : null
   // const comments = [...commentsInOrder]?.reverse()
   console.log(comments);
 

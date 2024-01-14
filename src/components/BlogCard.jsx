@@ -30,7 +30,7 @@ const BlogCard=() =>{
   const reversed = [...blogs].reverse();
 
   //LIKE BUTTONS
-  const {userId} = useSelector((state)=>state.auth)
+  // const {userId} = useSelector((state)=>state.auth)
   //console.log(userId);
   
 
@@ -41,7 +41,7 @@ const BlogCard=() =>{
     <>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow} key={blog?.id} sx={{ maxWidth: 330,backgroundColor:"#eceff1",alignContent:"center",transform:"scale(0.9)"}}>
+     <Card style={shadow} key={blog?._id} sx={{ maxWidth: 330,backgroundColor:"#eceff1",alignContent:"center",transform:"scale(0.9)"}}>
       <CardHeader 
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -74,7 +74,7 @@ const BlogCard=() =>{
           <PreviewIcon />
         </IconButton>
       </CardActions>
-      <Link to={`/detail/${blog?.id}`}> <Button variant='contained'>READ MORE</Button></Link>
+      <Link to={`/detail/${blog?._id}`}> <Button variant='contained'>READ MORE</Button></Link>
       {/* <Button variant='contained' onClick={() => navigate(`/detail/${blog.id}`)}>READ MORE</Button> */}
       {/* <Button
         onClick={() => navigate(`/detail/${blog.id}`, { state: blog })}>

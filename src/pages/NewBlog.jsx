@@ -13,7 +13,7 @@ const NewBlog = () => {
   }, [])
   
   const {categories} = useSelector((state)=>state.blog)
-
+  console.log(categories);
   return (
     <Box >
       <Formik
@@ -81,7 +81,7 @@ const NewBlog = () => {
                 required
               >
                 {categories.map((item)=>
-                  <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                  <MenuItem key={item._id} value={item._id}>{item.name}</MenuItem>
                   )}
                 
                 

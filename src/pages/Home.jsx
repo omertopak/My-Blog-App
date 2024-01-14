@@ -3,7 +3,7 @@ import BlogCard from '../components/BlogCard'
 import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import useBlogCall from "../hooks/useBlogCall"
-import News from '../components/News'
+// import News from '../components/News'
 const Home = () => {
   
   const { getData} = useBlogCall()
@@ -21,7 +21,7 @@ const Home = () => {
         <Box sx={{display:"flex", flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',padding:"6px"}} width="70vw" > 
           <BlogCard /> 
         </Box >
-        <News /> 
+        {/* <News />  */}
     </Box>
   )
 }

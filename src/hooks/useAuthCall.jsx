@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import useAxios from './useAxios'
 import { toastErrorNotify,toastSuccessNotify } from '../helper/ToastNotify'
 import { useNavigate } from "react-router-dom"
+import { useSelector } from 'react-redux';
 
 const useAuthCall = () => {
    const dispatch = useDispatch()
@@ -11,6 +12,7 @@ const useAuthCall = () => {
    const {axiosWithToken} = useAxios() 
     const navigate = useNavigate()
 
+    const {userId} = useSelector((state)=>state.auth)
 
     const login = async (userdata)=>{
     dispatch(fetchStart())
@@ -58,7 +60,7 @@ const useAuthCall = () => {
   const changePass = async (userdata)=>{
     dispatch(fetchStart())
     try {
-    await axiosWithToken.post(`/users/auth/password/change/`,userdata)
+    await axiosWithToken.post(`/users/${userId}`,userdata)
     toastSuccessNotify("Password Changed Successfully")
 
     } catch (error) {

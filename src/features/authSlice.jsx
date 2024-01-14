@@ -23,7 +23,7 @@ const authSlice = createSlice({
             state.userInfo=payload;
             state.currentUser = payload?.user.username;
             state.token = payload?.key;
-            state.userId=payload?.user.id;
+            state.userId=payload?.user._id;
             state.image=payload?.user.image;
             // console.log("Token",payload.key);
             // console.log("id",payload.user.id);
