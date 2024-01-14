@@ -32,19 +32,19 @@ const Detail = () => {
 
   const { blogs } = useSelector((state) => state.blog)
   // console.log(blogs);
-  const blogById = blogs.filter((item) => item.id == id)
+  const blogById = blogs.filter((item) => item._id == id)
   // console.log(blogById);
   const { userId } = useSelector((state) => state.auth)
   //LIKES
-  const likes = blogById[0]?.likes_n
-  const likesArray = likes?.map((item) => item.user_id)
+  const likesArray = blogById[0]?.likes_n
+  // const likesArray = likes?.map((item) => item.user_id)
   // console.log(likesArray);
   const heart = likesArray?.includes(userId)
   // console.log(heart);
   //COMMENTS
   const comments = blogById[0]?.comments ? blogById[0]?.comments : null
   // const comments = [...commentsInOrder]?.reverse()
-  console.log(comments);
+  // console.log(comments);
 
   const handleClick = () => {
     like("likes", id)

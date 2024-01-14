@@ -46,7 +46,7 @@ const useAuthCall = () => {
   const like = async (url, id) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.post(`/api/${url}/${id}/`)
+      await axiosWithToken.put(`/api/blogs/${url}/${id}/`)
       getData("blogs")
       
       
