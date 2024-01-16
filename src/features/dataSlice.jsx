@@ -23,7 +23,7 @@ const dataSlice = createSlice({
             state.loading = false;
         },
         getMyDataSuccess:(state,{payload})=>{
-            //console.log("payload.data",payload.url);
+            console.log("payload.data",payload.url);
             state[payload?.url]=payload?.data.data;
             state.loading = false;
         },
