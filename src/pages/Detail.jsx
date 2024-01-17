@@ -15,14 +15,12 @@ import { Link } from 'react-router-dom';
 import CardMedia from '@mui/material/CardMedia';
 import CopyToClipboard from "react-copy-to-clipboard"
 import { toastSuccessNotify } from '../helper/ToastNotify';
-import { Drawer, List, ListItem, ListItemText } from '@mui/material';
 import  { useState } from 'react';
 import Comments from '../components/Comments';
 const Detail = () => {
   const params = useParams()
   // console.log("params=",params.id);
   const id = params.id
-  const navigate = useNavigate()
   const { getViews } = useBlogCall()
   const { like } = useBlogCall()
   useEffect(() => {
