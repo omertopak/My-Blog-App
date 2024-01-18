@@ -22,7 +22,7 @@ const Update = () => {
     // console.log(categories);
     const {myblogs} = useSelector((state)=>state?.blog)
     // console.log(myblogs);
-    const updates = myblogs?.filter((item)=>item?.id==id)
+    const updates = myblogs?.filter((item)=>item?._id==id)
     console.log(updates);
     // blogData = myblogs.filter
     
@@ -95,14 +95,14 @@ const Update = () => {
               <Select
                 labelId='category'
                 label="Category"
-                value={values.category || ""}
+                value={values.category._id || ""}
                 name='category'
                 onChange={handleChange}
                 required
               // onChange={(e) => setStatus(e.target.value)} 
               >
                 {categories.map((item)=>
-                  <MenuItem key={item.id} value={item.id}>{item.name}</MenuItem>
+                  <MenuItem key={item._id} value={item._id}>{item.name}</MenuItem>
                   )}
                 
                 
@@ -116,6 +116,7 @@ const Update = () => {
                 value={values.status || ""}
                 name='status'
                 onChange={handleChange}
+                required
               // onChange={(e) => setStatus(e.target.value)} 
               >
                 {/* <MenuItem value="">Status</MenuItem> */}

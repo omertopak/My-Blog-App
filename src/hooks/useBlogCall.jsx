@@ -76,7 +76,7 @@ const useAuthCall = () => {
   const updateBlog = async (data,id) => {
     dispatch(fetchStart())
     try {
-      await axiosWithToken.patch(`/api/blogs/${id}/`,data)
+      await axiosWithToken.put(`/api/blogs/${id}/`,data)
       toastSuccessNotify("Post Updated")
       getData("blogs")
       navigate(-1)
