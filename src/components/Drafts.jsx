@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import { Box, Button } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
@@ -31,14 +31,14 @@ const Drafts=() =>{
   }, [])
   const {myblogs} = useSelector((state)=>state.blog)
   const myblogsP = myblogs.filter((item)=>item.status=="d")
-//   console.log(myblogs);
-//   console.log(myblogsP);
   const reversed = [...myblogsP].reverse();
+
+
   return (
     <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',height:"30rem",overflow:"scroll"}}>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow3} key={blog?.id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
+     <Card style={shadow3} key={blog?._id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
       <CardHeader sx={{textAlign:"left"}}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
@@ -59,11 +59,11 @@ const Drafts=() =>{
       </CardContent>
       <Box sx={{display:"flex",alignItems:"center",marginBottom:"0.3rem" }} justifyContent="space-between"   p >
       <CardActions >
-      <IconButton  aria-label="add to favorites" onClick={(e)=>handleClick(blog?.id)}>
+      <IconButton  aria-label="add to favorites" onClick={(e)=>handleClick(blog?._id)}>
           <DeleteIcon  sx={{fontSize:'1.3rem'}}   />
         </IconButton >
       </CardActions>
-      <Link to={`/update/${blog?.id}`}> <Button  sx={{fontSize:'0.5rem'}} variant='contained'>Update</Button></Link>
+      <Link to={`/update/${blog?._id}`}> <Button  sx={{fontSize:'0.5rem'}} variant='contained'>Update</Button></Link>
       
       </Box>
     </Card>
