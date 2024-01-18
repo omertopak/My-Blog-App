@@ -24,7 +24,7 @@ const dataSlice = createSlice({
         },
         getMyDataSuccess:(state,{payload})=>{
             console.log("payload.data",payload);
-            state[payload?.url]=payload?.data.data;
+            state[payload?.url]=payload?.data.data.result;
             state.loading = false;
         },
         

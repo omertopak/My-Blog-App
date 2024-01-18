@@ -30,14 +30,13 @@ const Published=() =>{
   }, [])
   const {myblogs} = useSelector((state)=>state.blog)
   const myblogsP = myblogs.filter((item)=>item.status=="p")
-//   console.log(myblogs);
-//   console.log(myblogsP);
+
   const reversed = [...myblogsP].reverse();
   return (
     <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',height:"30rem",overflow:"scroll"}}>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow3} key={blog?.id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
+     <Card style={shadow3} key={blog?._id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
       <CardHeader sx={[{textAlign:"left"}]}
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
