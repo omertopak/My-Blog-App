@@ -48,7 +48,7 @@ const BlogCard=() =>{
             
           </Avatar>
         }
-        title={blog?.author}
+        title={blog?.title}
         subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
       />
       <CardMedia

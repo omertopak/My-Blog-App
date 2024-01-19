@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Paper } from '@mui/material';
+import { Box, Typography, Button, CardContent, TextField} from '@mui/material';
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useBlogCall from "../hooks/useBlogCall"
@@ -17,6 +17,7 @@ import CopyToClipboard from "react-copy-to-clipboard"
 import { toastSuccessNotify } from '../helper/ToastNotify';
 import  { useState } from 'react';
 import Comments from '../components/Comments';
+import { Form, Formik } from 'formik';
 const Detail = () => {
   const params = useParams()
   // console.log("params=",params.id);
@@ -137,7 +138,42 @@ const Detail = () => {
         <Box
         sx={{display:"flex",justifyContent:"center"}}
         >
-          {open ? <Comments comments={comments}/> : ""}</Box>
+          {open ? (<Box sx={{width:"70%"}}>
+            <Formik
+                  onSubmit={(values, action) => {
+                  updateBlog(values,id)
+                  console.log(values,id);
+                  action.resetForm()
+                  action.setSubmitting(false)
+                }}
+              >
+              {({ handleChange, handleBlur, values, touched, errors }) => (
+                <Form sx={{width:"90%"}} >
+                  <CardContent sx={{ width: "80%", margin: "auto", display:"flex"}}>
+                  
+                    <TextField
+                      label="Comment"
+                      multiline
+                      fullWidth
+                      rows={5}
+                      name="content"
+                      value={values}
+                      required
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      // onChange={(e) => setContent(e.target.value)}
+                      sx={{ mt: 2 }}
+                    />
+                    <Button variant="contained" color="primary" type="submit" sx={{ m:2, width:"20%",alignItems:"center" }}>
+                      COMMENT!
+                    </Button>
+                  </CardContent>
+                </Form>
+              )}
+            </Formik>
+          <Comments comments={comments}/>
+          </Box>) : ""}
+          </Box>
           
         
       </Box>
