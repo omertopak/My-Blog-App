@@ -4,7 +4,7 @@ import useAxios from './useAxios'
 import { toastErrorNotify, toastSuccessNotify } from '../helper/ToastNotify'
 import { useNavigate } from "react-router-dom"
 
-const useAuthCall = () => {
+const useBlogCall = () => {
   const dispatch = useDispatch()
   const { axiosPublic, axiosWithToken } = useAxios()
   const navigate = useNavigate()
@@ -88,6 +88,37 @@ const useAuthCall = () => {
       toastErrorNotify("Error!")
     }
   }
+  const pushComment = async (data,id) => {
+    dispatch(fetchStart())
+    try {
+      console.log(data,id);
+      await axiosWithToken.put(`/api/blogs/pushComments/${id}/`,data)
+      toastSuccessNotify("Post Updated")
+      getData("blogs")
+      // navigate(-1)
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("Error!")
+    }
+  }
+  const pullComment = async (data,id) => {
+    dispatch(fetchStart())
+    try {
+      await axiosWithToken.put(`/api/blogs/pullComments/${id}/`,data)
+      toastSuccessNotify("Post Updated")
+      getData("blogs")
+      // navigate(-1)
+      
+
+    } catch (error) {
+      dispatch(fetchFail())
+      console.log(error)
+      toastErrorNotify("Error!")
+    }
+  }
   const myBlog = async (id,url) => {
     dispatch(fetchStart())
     try {
@@ -115,7 +146,7 @@ const useAuthCall = () => {
     }
   }
  
-  return { getData,getViews,like ,newBlog,myBlog,updateBlog,del}
+  return { getData,getViews,like ,newBlog,myBlog,updateBlog,pushComment,pullComment,del}
 }
 
-export default useAuthCall
+export default useBlogCall

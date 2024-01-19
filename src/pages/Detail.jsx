@@ -24,6 +24,8 @@ const Detail = () => {
   const id = params.id
   const { getViews } = useBlogCall()
   const { like } = useBlogCall()
+  const { pushComment } = useBlogCall()
+  const { pullComment } = useBlogCall()
   useEffect(() => {
     // console.log("detail");
     getViews("blogs", id);
@@ -138,33 +140,34 @@ const Detail = () => {
         <Box
         sx={{display:"flex",justifyContent:"center"}}
         >
-          {open ? (<Box sx={{width:"70%"}}>
+          {open ? (<Box sx={{width:"100%"}}>
             <Formik
+                  initialValues={{ user: userId , content: ""}}
                   onSubmit={(values, action) => {
-                  updateBlog(values,id)
+                  values.user=userId,
+                  pushComment(values,id)
                   console.log(values,id);
                   action.resetForm()
                   action.setSubmitting(false)
                 }}
               >
               {({ handleChange, handleBlur, values, touched, errors }) => (
-                <Form sx={{width:"90%"}} >
+                <Form sx={{width:"100%"}} >
                   <CardContent sx={{ width: "80%", margin: "auto", display:"flex"}}>
-                  
+                    
                     <TextField
-                      label="Comment"
+                      label="Content"
                       multiline
                       fullWidth
                       rows={5}
                       name="content"
-                      value={values}
-                      required
+                      // value={values.content}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       // onChange={(e) => setContent(e.target.value)}
                       sx={{ mt: 2 }}
                     />
-                    <Button variant="contained" color="primary" type="submit" sx={{ m:2, width:"20%",alignItems:"center" }}>
+                    <Button variant="contained" color="primary" type="submit" sx={{ mt:2, width:"20%",alignItems:"center" }}>
                       COMMENT!
                     </Button>
                   </CardContent>
@@ -173,9 +176,8 @@ const Detail = () => {
             </Formik>
           <Comments comments={comments}/>
           </Box>) : ""}
-          </Box>
-          
-        
+        </Box>
+      
       </Box>
     </>
   )
