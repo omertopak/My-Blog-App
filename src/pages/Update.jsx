@@ -24,6 +24,7 @@ const Update = () => {
     // console.log(myblogs);
     const updates = myblogs?.filter((item)=>item?._id==id)
     console.log(updates);
+    // console.log(sta);
     // blogData = myblogs.filter
     
     // window.addEventListener('beforeunload', (event) => {
@@ -95,7 +96,7 @@ const Update = () => {
               <Select
                 labelId='category'
                 label="Category"
-                value={values.category._id || ""}
+                value={values.category}
                 name='category'
                 onChange={handleChange}
                 required
@@ -113,7 +114,7 @@ const Update = () => {
               <Select
                 labelId='status'
                 label="status"
-                value={values.status || ""}
+                value={values.status}
                 name='status'
                 onChange={handleChange}
                 required

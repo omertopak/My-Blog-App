@@ -41,7 +41,7 @@ const BlogCard=() =>{
     <>
      {reversed?.map((blog)=>(
      
-     <Card style={shadow} key={blog?._id} sx={{ maxWidth: 330,backgroundColor:"#eceff1",alignContent:"center",transform:"scale(0.9)"}}>
+     <Card style={shadow} key={blog?._id} sx={{ maxWidth: 330,backgroundColor:"#eceff1",alignContent:"center",transform:"scale(0.8)"}}>
       <CardHeader 
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">

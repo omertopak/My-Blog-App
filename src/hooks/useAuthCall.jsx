@@ -32,9 +32,10 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
     const {data} = await axiosPublic.post(`/users/register/`,userdata)
-    navigate("/ink")
-    toastSuccessNotify("Successfully logged in")
-    dispatch(getAuthSuccess(data))
+    login(userdata)
+    // navigate("/ink")
+    toastSuccessNotify("Successfully registered.")
+    // dispatch(getAuthSuccess(data))
 
     } catch (error) {
       dispatch(fetchFail())

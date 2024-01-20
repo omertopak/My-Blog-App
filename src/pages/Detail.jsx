@@ -43,7 +43,8 @@ const Detail = () => {
   const heart = likesArray?.includes(userId)
   // console.log(heart);
   //COMMENTS
-  const comments2 = blogById[0]?.comments ? blogById[0]?.comments : null
+  const comments2 = blogById[0]?.comments || null
+
   const comments = [...comments2]?.reverse()
   // console.log(comments);
 
@@ -149,6 +150,7 @@ const Detail = () => {
                   console.log(values,id);
                   action.resetForm()
                   action.setSubmitting(false)
+                  
                 }}
               >
               {({ handleChange, handleBlur, values, touched, errors }) => (
@@ -156,12 +158,11 @@ const Detail = () => {
                   <CardContent sx={{ width: "80%", margin: "auto", display:"flex"}}>
                     
                     <TextField
-                      label="Content"
+                      label="Comment here..."
                       multiline
                       fullWidth
                       rows={5}
                       name="content"
-                      // value={values.content}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       // onChange={(e) => setContent(e.target.value)}

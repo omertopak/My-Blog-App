@@ -73,7 +73,7 @@ const Register = () => {
                         onSubmit={(values, action) => {
                             console.log(values);
                             register(values)
-                            console.log(values);
+                            // console.log(values);
                             action.resetForm()
                             action.setSubmitting(false)
                         }}

@@ -93,7 +93,7 @@ const useBlogCall = () => {
     try {
       console.log(data,id);
       await axiosWithToken.put(`/api/blogs/pushComments/${id}/`,data)
-      toastSuccessNotify("Post Updated")
+      toastSuccessNotify("Comment created!")
       getData("blogs")
       // navigate(-1)
       
@@ -108,7 +108,7 @@ const useBlogCall = () => {
     dispatch(fetchStart())
     try {
       await axiosWithToken.put(`/api/blogs/pullComments/${id}/`,data)
-      toastSuccessNotify("Post Updated")
+      toastSuccessNotify("Comment Deleted!")
       getData("blogs")
       // navigate(-1)
       
