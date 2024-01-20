@@ -25,7 +25,7 @@ const Detail = () => {
   const { getViews } = useBlogCall()
   const { like } = useBlogCall()
   const { pushComment } = useBlogCall()
-  const { pullComment } = useBlogCall()
+  
   useEffect(() => {
     // console.log("detail");
     getViews("blogs", id);
@@ -43,8 +43,8 @@ const Detail = () => {
   const heart = likesArray?.includes(userId)
   // console.log(heart);
   //COMMENTS
-  const comments = blogById[0]?.comments ? blogById[0]?.comments : null
-  // const comments = [...commentsInOrder]?.reverse()
+  const comments2 = blogById[0]?.comments ? blogById[0]?.comments : null
+  const comments = [...comments2]?.reverse()
   // console.log(comments);
 
   const handleClick = () => {
@@ -174,7 +174,7 @@ const Detail = () => {
                 </Form>
               )}
             </Formik>
-          <Comments comments={comments}/>
+          <Comments sx={{ width: "100%"}} comments={comments} id={id}/>
           </Box>) : ""}
         </Box>
       

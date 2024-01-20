@@ -68,8 +68,8 @@ export const borderb = {
   borderBottom:" 0.25rem solid #455a64",
   // borderRight: "0.25rem solid green",
   marginTop: "5%",
-  width: "40rem",
-  height: "100px",
+  width: "60rem",
+  height: "auto",
 }
 export const borderb2 = {
   borderBottom:" 0.25rem solid #455a64",
