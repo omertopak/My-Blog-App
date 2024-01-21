@@ -61,9 +61,10 @@ const useAuthCall = () => {
   const changePass = async (userdata)=>{
     dispatch(fetchStart())
     try {
-    await axiosWithToken.post(`/users/${userId}`,userdata)
+    const data = await axiosWithToken.put(`/users/${userId}`,userdata)
+    console.log(data);
     toastSuccessNotify("Password Changed Successfully")
-
+    navigate("/profile")
     } catch (error) {
       toastErrorNotify("Unsuccesfull")
     }

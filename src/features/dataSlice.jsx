@@ -1,8 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit"
 
+
 const dataSlice = createSlice({
     name:"blog",
-
+    
     initialState:{
         loading:false,
         error:false,
@@ -11,7 +12,6 @@ const dataSlice = createSlice({
         categories:[],
         myblogs:[],
     },
-
     reducers:{
         fetchStart:(state)=>{
             state.loading = true;
@@ -23,8 +23,8 @@ const dataSlice = createSlice({
             state.loading = false;
         },
         getMyDataSuccess:(state,{payload})=>{
-            // console.log("payload.data",payload);
-            state[payload?.url]=payload?.data.data.result;
+            console.log("payload.data",payload?.data.data.result);
+            state[payload?.url] = payload?.data.data.result;
             state.loading = false;
         },
         

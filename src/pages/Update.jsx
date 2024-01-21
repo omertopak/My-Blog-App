@@ -99,7 +99,7 @@ const Update = () => {
                 value={values.category}
                 name='category'
                 onChange={handleChange}
-                required
+                
               // onChange={(e) => setStatus(e.target.value)} 
               >
                 {categories.map((item)=>

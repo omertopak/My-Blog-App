@@ -34,7 +34,7 @@ const Login = () => {
                     }}
                 >
                     <Formik
-                        initialValues={{ new_password1:"", new_password2:""}}
+                        initialValues={{ password1:"", password2:""}}
 
                         onSubmit={(values, action) => {
                             console.log(values);
@@ -53,15 +53,15 @@ const Login = () => {
                                         margin="normal"
                                         required
                                         fullWidth
-                                        id="new_password1"
+                                        id="password1"
                                         label="New Password"
-                                        name="new_password1"
+                                        name="password1"
                                         type="password"
-                                        autoComplete="new_password1"
+                                        autoComplete="password1"
                                         onChange={handleChange}
-                                        value={values.new_password1 || ""}
+                                        value={values.password1 || ""}
                                         onBlur={handleBlur}
-                                        error={touched.new_password1 && Boolean(errors.new_password1)}
+                                        error={touched.password1 && Boolean(errors.password1)}
                                         autoFocus
                                         sx={{ mt: 1, }}
                                         InputLabelProps={{
@@ -79,15 +79,15 @@ const Login = () => {
                                         margin="normal"
                                         required
                                         fullWidth
-                                        name="new_password2"
-                                        label="New Password"
+                                        name="password2"
+                                        label="New Password 2"
                                         type="password"
-                                        id="new_password2"
-                                        autoComplete="new_password2"
+                                        id="password2"
+                                        autoComplete="password2"
                                         onChange={handleChange}
-                                        value={values.new_password2}
+                                        value={values.password2}
                                         onBlur={handleBlur}
-                                        error={touched.new_password2 && Boolean(errors.new_password2)}
+                                        error={touched.password2 && Boolean(errors.password2)}
                                         InputLabelProps={{
                                             sx: {
                                             // set the color of the label when not shrinked

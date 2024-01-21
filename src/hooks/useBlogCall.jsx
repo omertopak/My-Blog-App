@@ -119,10 +119,11 @@ const useBlogCall = () => {
       toastErrorNotify("Error!")
     }
   }
+
   const myBlog = async (id,url) => {
     dispatch(fetchStart())
     try {
-      const data = await axiosWithToken.get(`/api/blogs/?author=${id}`)
+      const data = await axiosWithToken.get(`/api/blogs/?SEARCH[author]=${id}`)
       dispatch(getMyDataSuccess({ data, url }))
       
       

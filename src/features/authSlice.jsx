@@ -19,7 +19,7 @@ const authSlice = createSlice({
             state.error = false;
         },
         getAuthSuccess:(state,{payload})=>{
-            console.log("payload",payload);
+            // console.log("payload",payload);
             state.loading = false;
             state.userInfo=payload;
             state.currentUser = payload?.user.username;
