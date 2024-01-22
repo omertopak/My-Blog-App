@@ -18,6 +18,8 @@ import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
 import { shadow } from '../style/theme';
 import { ellipsis } from '../style/theme';
+import CopyToClipboard from "react-copy-to-clipboard"
+
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
   useEffect(() => {
@@ -27,15 +29,23 @@ const BlogCard=() =>{
   const {blogs} = useSelector((state)=>state.blog)
   // console.log(blogs);
   
-  const reversed = [...blogs].reverse();
-
+  const rev = [...blogs].reverse();
+  // console.log(reversed);
+  const reversed = rev.filter((item)=>item.status=="p")
   //LIKE BUTTONS
   const {userId} = useSelector((state)=>state.auth)
   //console.log(userId);
   
   // const likesData = likes?.map((item)=>item.user_id)
   // console.log("likesdata",likesData);
-  
+
+  const { like } = useBlogCall()
+  const handleClick=(id)=> {
+    like("likes", id)
+    console.log("like",id);
+  }
+
+
   return (
     <>
      {reversed?.map((blog)=>(
@@ -57,15 +67,32 @@ const BlogCard=() =>{
         sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",width:"20rem",height:"15rem",margin:"auto"}}
       />
       <CardContent sx={{width:"100%"}}>
-        <Typography variant="body2" color="text.secondary" m={1} mb={1} sx={ellipsis} >
+        <Typography variant="body2" color="text.secondary" m={1} mb={1} sx={[ellipsis,{minHeight:"4.2rem"}]} >
         {blog?.content}
         </Typography>
       </CardContent>
-      <Box sx={{display:"flex",alignItems:"center",marginBottom:"0.5rem" }} justifyContent="space-between"  m p >
-      <CardActions >     
-        <IconButton aria-label="add to favorites">
+      <Box sx={{display:"flex",alignItems:"center",marginBottom:"0rem" }} justifyContent="space-between"  m p >
+      <CardActions >
+        
+        {
+        blog?.likes_n==userId ?  
+        <IconButton sx={{ color: "#d50000" }} onClick={() => handleClick(blog._id)} 
+         aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
+         :  
+        <IconButton onClick={() => handleClick(blog._id)} 
+        aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        }
+
+{/*         
+         <IconButton aria-label="add to favorites">
+           <FavoriteIcon />
+         </IconButton> */}
+
+          
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
