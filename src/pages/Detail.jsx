@@ -25,15 +25,16 @@ const Detail = () => {
   const { getViews } = useBlogCall()
   const { like } = useBlogCall()
   const { pushComment } = useBlogCall()
-  
+  const { getData} = useBlogCall()
   useEffect(() => {
     // console.log("detail");
     getViews("blogs", id);
+    getData("blogs")
   }, [])
 
   const { blogs } = useSelector((state) => state.blog)
   // console.log(blogs);
-  const blogById = blogs.filter((item) => item._id == id)
+  const blogById = blogs?.filter((item) => item._id == id)
   // console.log(blogById);
   const { userId } = useSelector((state) => state.auth)
   //LIKES
@@ -44,8 +45,8 @@ const Detail = () => {
   // console.log(heart);
   //COMMENTS
   const comments2 = blogById[0]?.comments || null
-
-  const comments = [...comments2]?.reverse()
+  if(comments2){const comments =  [...comments2]?.reverse()}
+  
   // console.log(comments);
 
   const handleClick = () => {
@@ -111,6 +112,7 @@ const Detail = () => {
                 <FavoriteIcon />
                 <Typography sx={likeButton}>{blogById[0]?.likes}</Typography>
               </IconButton>}
+              
             <IconButton aria-label="share">
               <Typography sx={likeButton}>{blogById[0]?.post_views}</Typography>
               <PreviewIcon />

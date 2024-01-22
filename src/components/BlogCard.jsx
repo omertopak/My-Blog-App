@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import { Box, Button } from '@mui/material';
 import PreviewIcon from '@mui/icons-material/Preview';
 import { Link } from 'react-router-dom';
@@ -18,7 +17,7 @@ import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
 import { shadow } from '../style/theme';
 import { ellipsis } from '../style/theme';
-import CopyToClipboard from "react-copy-to-clipboard"
+import { likeButton } from '../style/theme';
 
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
@@ -45,6 +44,7 @@ const BlogCard=() =>{
     console.log("like",id);
   }
 
+  
 
   return (
     <>
@@ -79,26 +79,28 @@ const BlogCard=() =>{
         <IconButton sx={{ color: "#d50000" }} onClick={() => handleClick(blog._id)} 
          aria-label="add to favorites">
           <FavoriteIcon />
+          <Typography sx={[likeButton,{color:"black"}]}>{blog?.likes}</Typography>
         </IconButton>
          :  
         <IconButton onClick={() => handleClick(blog._id)} 
         aria-label="add to favorites">
           <FavoriteIcon />
+          <Typography sx={likeButton}>{blog?.likes}</Typography>
         </IconButton>
         }
 
-{/*         
-         <IconButton aria-label="add to favorites">
-           <FavoriteIcon />
-         </IconButton> */}
-
           
-        <IconButton aria-label="share">
+        {/* <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
+  
         <IconButton aria-label="share">
           <PreviewIcon />
+          <Typography sx={[likeButton,{color:"black"}]}>{blog?.comment_count}</Typography>
         </IconButton>
+
+        
+
       </CardActions>
       <Link to={`/detail/${blog?._id}`}> <Button variant='contained'>READ MORE</Button></Link>
       {/* <Button variant='contained' onClick={() => navigate(`/detail/${blog.id}`)}>READ MORE</Button> */}
