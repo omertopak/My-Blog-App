@@ -42,14 +42,3 @@ const MyBlogs = () => {
 
 export default MyBlogs
 
-
-
-// "key": "e5ec421c010adabb3cf5ec134e7f55f7f63c212d",
-//     "user": {
-//         "id": 2,
-//         "username": "Ink_Admin",
-//         "email": "omertopak1@gmail.com",
-//         "first_name": "Omer",
-//         "last_name": "Topak",
-//         "image": "https://previews.123rf.com/images/agnessz/agnessz1609/agnessz160900124/66083532-m%C3%A4nnlicher-avatar-mit-brille.jpg",
-//         "bio": "I am a frontend developer"
