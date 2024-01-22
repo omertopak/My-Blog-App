@@ -28,7 +28,7 @@ const authSlice = createSlice({
             state.image=payload?.user.image;
             // console.log("Token",payload.key);
             // console.log("id",payload.user.id);
-            console.log(payload);
+            // console.log(payload);
         },
         logoutSuccess:(state)=>{
             state.loading = false;

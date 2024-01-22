@@ -20,12 +20,13 @@ const useAuthCall = () => {
     const {data} = await axiosPublic.post(`/users/auth/login/`,userdata)
     navigate("/ink")
     toastSuccessNotify("Successfully logged in")
+    // console.log(data);
     dispatch(getAuthSuccess(data))
 
     } catch (error) {
       dispatch(fetchFail())
       console.log(error)
-      toastErrorNotify("HATA")
+      toastErrorNotify("Login unsuccessfull!")
     }
   }
   const register = async (userdata)=>{
@@ -40,7 +41,7 @@ const useAuthCall = () => {
     } catch (error) {
       dispatch(fetchFail())
       console.log(error)
-      toastErrorNotify("HATA")
+      toastErrorNotify("Register unsuccesfull!")
     }
   }
 
@@ -54,7 +55,7 @@ const useAuthCall = () => {
     } catch (error) {
       console.log(error)
       dispatch(fetchFail())
-      toastErrorNotify("Logout islemi basarisiz")
+      toastErrorNotify("Logout unsuccesfull!")
     }
   }
 
@@ -64,9 +65,10 @@ const useAuthCall = () => {
     const data = await axiosWithToken.put(`/users/${userId}`,userdata)
     console.log(data);
     toastSuccessNotify("Password Changed Successfully")
-    navigate("/profile")
+    navigate("/")
+    dispatch(getAuthSuccess(data))
     } catch (error) {
-      toastErrorNotify("Unsuccesfull")
+      // toastErrorNotify("Unsuccesfull!2")
     }
   }
 

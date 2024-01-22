@@ -34,7 +34,7 @@ const Login = () => {
                     }}
                 >
                     <Formik
-                        initialValues={{ password1:"", password2:""}}
+                        initialValues={{}}
 
                         onSubmit={(values, action) => {
                             console.log(values);
@@ -53,15 +53,15 @@ const Login = () => {
                                         margin="normal"
                                         required
                                         fullWidth
-                                        id="password1"
+                                        id="password"
                                         label="New Password"
-                                        name="password1"
+                                        name="password"
                                         type="password"
-                                        autoComplete="password1"
+                                        autoComplete="password"
                                         onChange={handleChange}
-                                        value={values.password1 || ""}
+                                        value={values.password || ""}
                                         onBlur={handleBlur}
-                                        error={touched.password1 && Boolean(errors.password1)}
+                                        error={touched.password && Boolean(errors.password)}
                                         autoFocus
                                         sx={{ mt: 1, }}
                                         InputLabelProps={{
