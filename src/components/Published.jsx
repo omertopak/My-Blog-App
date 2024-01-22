@@ -29,7 +29,10 @@ const Published=() =>{
     myBlog(userId,"myblogs");
   }, [])
   const {myblogs} = useSelector((state)=>state.blog)
-  const myblogsP = myblogs.filter((item)=>item.status=="p")
+  const myBlogsAll = myblogs.filter((item)=>item.author==userId)
+  // console.log("myblogs",myBlogsAll);
+  // console.log("userId" ,userId);
+  const myblogsP = myBlogsAll.filter((item)=>item.status=="p")
 
   const reversed = [...myblogsP].reverse();
   return (

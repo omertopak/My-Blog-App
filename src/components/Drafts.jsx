@@ -30,7 +30,8 @@ const Drafts=() =>{
     myBlog(userId,"myblogs");
   }, [])
   const {myblogs} = useSelector((state)=>state.blog)
-  const myblogsP = myblogs.filter((item)=>item.status=="d")
+  const myBlogsAll = myblogs.filter((item)=>item.author==userId)
+  const myblogsP = myBlogsAll.filter((item)=>item.status=="d")
   const reversed = [...myblogsP].reverse();
 
 
