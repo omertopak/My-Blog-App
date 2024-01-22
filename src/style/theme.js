@@ -40,12 +40,13 @@ export const shadow3 = {
 
 
 export const ellipsis = {
-    maxWidth: '100%',
+    maxWidth: '90%',
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
     WebkitLineClamp: 3,
     overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    textOverflow: 'clip',
+    whiteSpace: 'normal'
 }
 
 export const ellipsis1 = {

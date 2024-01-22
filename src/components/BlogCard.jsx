@@ -30,13 +30,12 @@ const BlogCard=() =>{
   const reversed = [...blogs].reverse();
 
   //LIKE BUTTONS
-  // const {userId} = useSelector((state)=>state.auth)
+  const {userId} = useSelector((state)=>state.auth)
   //console.log(userId);
-  
-
   
   // const likesData = likes?.map((item)=>item.user_id)
   // console.log("likesdata",likesData);
+  
   return (
     <>
      {reversed?.map((blog)=>(
@@ -57,8 +56,8 @@ const BlogCard=() =>{
         alt="Not found"
         sx={{objectFit:"contain",padding:"4px",marginBottom:"1rem",width:"20rem",height:"15rem",margin:"auto"}}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary" m={1} mb={1} sx={ellipsis}>
+      <CardContent sx={{width:"100%"}}>
+        <Typography variant="body2" color="text.secondary" m={1} mb={1} sx={ellipsis} >
         {blog?.content}
         </Typography>
       </CardContent>

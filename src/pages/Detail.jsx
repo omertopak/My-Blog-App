@@ -85,7 +85,7 @@ const Detail = () => {
         src={blogById[0].image}
         /> */}
         <Typography sx={{ textAlign:'right', fontWeight: "bold", fontStyle: 'italic' }}>
-          Category Name:{blogById[0]?.category_name}
+          Category Name:{blogById[0]?.category.name}
         </Typography>
         <Typography variant='h5' sx={{ fontSize: 16, fontFamily: 'Monospace', textTransform: 'uppercase', fontWeight: 'bold', fontSize: 'h4.fontSize' }}>
           {blogById[0]?.title}

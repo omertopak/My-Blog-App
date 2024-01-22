@@ -19,11 +19,14 @@ const Update = () => {
     }, [])
     
     const {categories} = useSelector((state)=>state.blog)
-    // console.log(categories);
+    console.log("categories",categories);
     const {myblogs} = useSelector((state)=>state?.blog)
     // console.log(myblogs);
     const updates = myblogs?.filter((item)=>item?._id==id)
-    console.log(updates);
+    console.log("updates",updates);
+    const categoryName = updates[0]?.category._id
+    console.log(categoryName);
+    
     // console.log(sta);
     // blogData = myblogs.filter
     
@@ -35,9 +38,15 @@ const Update = () => {
     // });
 
   return (
+    
     <Box >
       <Formik
-        initialValues={{ title: updates[0]?.title , content: updates[0]?.content, image: updates[0]?.image ,category:updates[0]?.category ,slug:"",status:updates[0]?.status }}
+        initialValues={{ 
+          title: updates[0]?.title , 
+          content: updates[0]?.content, 
+          image: updates[0]?.image , 
+          category:categoryName ,
+          status:updates[0]?.status }}
         onSubmit={(values, action) => {
           updateBlog(values,id)
           console.log(values,id);
@@ -53,8 +62,8 @@ const Update = () => {
             </Typography>
             <TextField
               label="Title"
-              fullWidth
               name="title"
+              fullWidth
               value={values.title }
               required
               onChange={handleChange}
@@ -66,10 +75,10 @@ const Update = () => {
             />
             <TextField
               label="Content"
+              name="content"
               multiline
               fullWidth
               rows={5}
-              name="content"
               value={values.content}
               required
               onChange={handleChange}
@@ -79,9 +88,9 @@ const Update = () => {
             />
             <TextField
               label="Image URL"
-              fullWidth
               name="image"
-              value={values.image}
+              fullWidth
+              value={values.image || ""}
               required
               onChange={handleChange}
               onBlur={handleBlur}
@@ -97,13 +106,14 @@ const Update = () => {
                 labelId='category'
                 label="Category"
                 value={values.category}
-                name='category'
                 onChange={handleChange}
-                
+                onBlur={handleBlur}
+                name="category"
               // onChange={(e) => setStatus(e.target.value)} 
               >
                 {categories.map((item)=>
                   <MenuItem key={item._id} value={item._id}>{item.name}</MenuItem>
+                  
                   )}
                 
                 
@@ -115,9 +125,10 @@ const Update = () => {
                 labelId='status'
                 label="status"
                 value={values.status}
-                name='status'
                 onChange={handleChange}
+                onBlur={handleBlur}
                 required
+                name="status"
               // onChange={(e) => setStatus(e.target.value)} 
               >
                 {/* <MenuItem value="">Status</MenuItem> */}

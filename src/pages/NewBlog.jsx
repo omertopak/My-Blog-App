@@ -96,6 +96,7 @@ const NewBlog = () => {
                 value={values.status || ""}
                 name='status'
                 onChange={handleChange}
+                required
               >
                
                 <MenuItem value="p">Publish</MenuItem>
