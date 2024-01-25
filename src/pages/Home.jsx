@@ -9,7 +9,7 @@ const Home = () => {
   const { getData} = useBlogCall()
   
   useEffect(() => {
-    console.log("homedaki clg");
+    // console.log("homedaki clg");
     getData("blogs")
   }, [])
 

@@ -71,7 +71,7 @@ const Register = () => {
                         initialValues={{ username: "", first_name: "", last_name: "", email: "", image: "", bio: "", password: "", password2: "" }}
                         //  validate={registerSchema}
                         onSubmit={(values, action) => {
-                            console.log(values);
+                            // console.log(values);
                             register(values)
                             // console.log(values);
                             action.resetForm()

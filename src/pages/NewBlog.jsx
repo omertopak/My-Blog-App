@@ -13,7 +13,7 @@ const NewBlog = () => {
   }, [])
   
   const {categories} = useSelector((state)=>state.blog)
-  console.log(categories);
+  // console.log(categories);
   return (
     <Box >
       <Formik
@@ -21,7 +21,7 @@ const NewBlog = () => {
 
         onSubmit={(values, action) => {
           newBlog(values)
-          console.log(values);
+          // console.log(values);
           action.resetForm()
           action.setSubmitting(false)
         }}
