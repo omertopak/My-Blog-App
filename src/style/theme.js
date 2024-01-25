@@ -71,12 +71,13 @@ export const ellipsis1 = {
     textOverflow: 'ellipsis',
 }
 export const ellipsis2 = {
+    height:"6.5rem",
     maxWidth: '100%',
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
     WebkitLineClamp: 2,
     overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    textOverflow: 'clip',
 }
 export const borderb = {
   borderBottom:" 0.25rem solid #455a64",

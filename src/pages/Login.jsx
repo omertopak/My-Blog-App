@@ -7,12 +7,19 @@ import Typography from "@mui/material/Typography";
 import { Form, Formik } from 'formik';
 import useAuthCall from "../hooks/useAuthCall";
 import { Link } from "react-router-dom"
-
+import AlertTitle from '@mui/material/AlertTitle';
+import { Alert } from "@mui/material";
 const Login = () => {
     const { login } = useAuthCall()
 
     return (
-
+        <>
+        <Alert severity="info">
+            <AlertTitle>You can Login; </AlertTitle>
+            <p>Username: tester,</p>
+            <p>e-mail: tester@gmail.com,</p>
+            <p>password: tester1234</p>
+        </Alert>
         <Grid container height="100vh" width="100vw" justifyContent="center" sx={{ backgroundColor: "whitesmoke" }}>
             <Grid item
                 xs={false}
@@ -142,6 +149,7 @@ const Login = () => {
                 </Box>
             </Grid>
         </Grid>
+        </>
     );
 }
 

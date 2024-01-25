@@ -15,10 +15,11 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useBlogCall from "../hooks/useBlogCall"
-import { shadow } from '../style/theme';
+import { ellipsis2, shadow } from '../style/theme';
 import { ellipsis } from '../style/theme';
 import { likeButton } from '../style/theme';
 import CommentIcon from '@mui/icons-material/Comment';
+import styled from 'styled-components';
 
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
@@ -40,12 +41,22 @@ const BlogCard=() =>{
   // console.log("likesdata",likesData);
 
   const { like } = useBlogCall()
-  const handleClick=(id)=> {
+  const handleClick=(id,blog)=> {
     like("likes", id)
-    // console.log("like",id);
+    console.log(userId);
+    console.log("like",id);
+    console.log(blog);
   }
+  
+  // console.log(reversed);
 
-  console.log(reversed);
+  const CustomTitle = styled.div`
+    height:4rem;
+    /* display: '-webkit-box'; */
+    overflow: hidden;
+    text-overflow:ellipsis;
+`;
+  
 
   return (
     <>
@@ -53,12 +64,13 @@ const BlogCard=() =>{
      
      <Card style={shadow} key={blog?._id} sx={{ maxWidth: 330,backgroundColor:"#eceff1",alignContent:"center",transform:"scale(0.8)"}}>
       <CardHeader 
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+        // avatar={
+        //   <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             
-          </Avatar>
-        }
-        title={blog?.title}
+        //   </Avatar>
+        // }
+        
+        title={<CustomTitle>{blog?.title}</CustomTitle>}
         subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
       />
       <CardMedia
@@ -76,14 +88,14 @@ const BlogCard=() =>{
       <CardActions >
         
         {
-        blog?.likes_n==userId ?  
-        <IconButton sx={{ color: "#d50000" }} onClick={() => handleClick(blog._id)} 
+        blog?.likes_n.includes(userId) ?  
+        <IconButton sx={{ color: "#d50000" }} onClick={() => handleClick(blog._id,blog)} 
          aria-label="add to favorites">
           <FavoriteIcon />
           <Typography sx={[likeButton,{color:"black"}]}>{blog?.likes}</Typography>
         </IconButton>
          :  
-        <IconButton onClick={() => handleClick(blog._id)} 
+        <IconButton onClick={() => handleClick(blog._id,blog)} 
         aria-label="add to favorites">
           <FavoriteIcon />
           <Typography sx={[likeButton,{color:"black"}]}>{blog?.likes}</Typography>
