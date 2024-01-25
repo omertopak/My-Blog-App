@@ -37,7 +37,7 @@ const Login = () => {
                         initialValues={{}}
 
                         onSubmit={(values, action) => {
-                            console.log(values);
+                            // console.log(values);
                             changePass(values)
                             // console.log(values);
                             action.resetForm()

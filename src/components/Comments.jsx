@@ -11,7 +11,7 @@ const Comments = ({comments,id}) => {
     const handleClick = (commentId)=>{
       const data = {comments:commentId}
       pullComment(data,id)
-      console.log(data,id);
+      // console.log(data,id);
   }
 
   const [open, setOpen] = useState(false);

@@ -19,13 +19,13 @@ const Update = () => {
     }, [])
     
     const {categories} = useSelector((state)=>state.blog)
-    console.log("categories",categories);
+    // console.log("categories",categories);
     const {myblogs} = useSelector((state)=>state?.blog)
     // console.log(myblogs);
     const updates = myblogs?.filter((item)=>item?._id==id)
-    console.log("updates",updates);
+    // console.log("updates",updates);
     const categoryName = updates[0]?.category._id
-    console.log(categoryName);
+    // console.log(categoryName);
     
     // console.log(sta);
     // blogData = myblogs.filter
@@ -49,7 +49,7 @@ const Update = () => {
           status:updates[0]?.status }}
         onSubmit={(values, action) => {
           updateBlog(values,id)
-          console.log(values,id);
+          // console.log(values,id);
           action.resetForm()
           action.setSubmitting(false)
         }}

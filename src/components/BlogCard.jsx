@@ -18,6 +18,7 @@ import useBlogCall from "../hooks/useBlogCall"
 import { shadow } from '../style/theme';
 import { ellipsis } from '../style/theme';
 import { likeButton } from '../style/theme';
+import CommentIcon from '@mui/icons-material/Comment';
 
 const BlogCard=() =>{  
   const { getData } = useBlogCall()
@@ -41,10 +42,10 @@ const BlogCard=() =>{
   const { like } = useBlogCall()
   const handleClick=(id)=> {
     like("likes", id)
-    console.log("like",id);
+    // console.log("like",id);
   }
 
-  
+  console.log(reversed);
 
   return (
     <>
@@ -85,7 +86,7 @@ const BlogCard=() =>{
         <IconButton onClick={() => handleClick(blog._id)} 
         aria-label="add to favorites">
           <FavoriteIcon />
-          <Typography sx={likeButton}>{blog?.likes}</Typography>
+          <Typography sx={[likeButton,{color:"black"}]}>{blog?.likes}</Typography>
         </IconButton>
         }
 
@@ -95,10 +96,14 @@ const BlogCard=() =>{
         </IconButton> */}
   
         <IconButton aria-label="share">
-          <PreviewIcon />
+          <CommentIcon />
           <Typography sx={[likeButton,{color:"black"}]}>{blog?.comment_count}</Typography>
         </IconButton>
 
+        <IconButton aria-label="share">
+          <PreviewIcon />
+          <Typography sx={[likeButton,{color:"black"}]}>{blog?.post_views}</Typography>
+        </IconButton>
         
 
       </CardActions>

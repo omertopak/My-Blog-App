@@ -44,7 +44,7 @@ const Detail = () => {
   const heart = likesArray?.includes(userId)
   // console.log(heart);
   //COMMENTS
-  const comments2 = blogById[0]?.comments || null
+  const comments2 = blogById[0]?.comments
   if(comments2){const comments =  [...comments2]?.reverse()}
   
   // console.log(comments);
@@ -177,7 +177,7 @@ const Detail = () => {
                 </Form>
               )}
             </Formik>
-          <Comments sx={{ width: "100%"}} comments={comments} id={id}/>
+          <Comments sx={{ width: "100%"}} comments={comments2} id={id}/>
           </Box>) : ""}
         </Box>
       

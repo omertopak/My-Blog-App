@@ -14,14 +14,14 @@ const useNewsCall = () => {
     dispatch(fetchStart())
     try {
       const { data } = await newsWithToken()
-      console.log("getNews calisti");
+      // console.log("getNews calisti");
       toastSuccessNotify("Successfully logged in")
-      console.log(data);
+      // console.log(data);
       dispatch(getDataSuccess(data))
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("HATA")
     }
   }

@@ -24,7 +24,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("HATA")
     }
   }
@@ -39,7 +39,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("HATA")
     }
   }
@@ -53,7 +53,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }
@@ -69,7 +69,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }
@@ -84,14 +84,14 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }
   const pushComment = async (data,id) => {
     dispatch(fetchStart())
     try {
-      console.log(data,id);
+      // console.log(data,id);
       await axiosWithToken.put(`/api/blogs/pushComments/${id}/`,data)
       toastSuccessNotify("Comment created!")
       getData("blogs")
@@ -100,7 +100,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }
@@ -115,7 +115,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }
@@ -130,7 +130,7 @@ const useBlogCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }
@@ -142,7 +142,7 @@ const useBlogCall = () => {
       refresh()
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Error!")
     }
   }

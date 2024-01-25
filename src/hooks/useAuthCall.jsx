@@ -25,7 +25,7 @@ const useAuthCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Login unsuccessfull!")
     }
   }
@@ -40,7 +40,7 @@ const useAuthCall = () => {
 
     } catch (error) {
       dispatch(fetchFail())
-      console.log(error)
+      // console.log(error)
       toastErrorNotify("Register unsuccesfull!")
     }
   }
@@ -53,7 +53,7 @@ const useAuthCall = () => {
       toastSuccessNotify("logout islemi basarili")
       navigate("/")
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       dispatch(fetchFail())
       toastErrorNotify("Logout unsuccesfull!")
     }
@@ -63,7 +63,7 @@ const useAuthCall = () => {
     dispatch(fetchStart())
     try {
     const data = await axiosWithToken.put(`/users/${userId}`,userdata)
-    console.log(data);
+    // console.log(data);
     toastSuccessNotify("Password Changed Successfully")
     navigate("/")
     dispatch(getAuthSuccess(data))
