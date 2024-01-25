@@ -33,7 +33,7 @@ const Drafts=() =>{
   const myBlogsAll = myblogs.filter((item)=>item.author==userId)
   const myblogsP = myBlogsAll.filter((item)=>item.status=="d")
   const reversed = [...myblogsP].reverse();
-
+  const { userInfo } = useSelector((state) => state.auth)
 
   return (
     <Box sx={{display:"flex",flexWrap:"wrap",justifyContent:"space-evenly",flexDirection: 'reverse-row',height:"30rem",overflow:"scroll"}}>
@@ -42,9 +42,11 @@ const Drafts=() =>{
      <Card style={shadow3} key={blog?._id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
       <CardHeader sx={{textAlign:"left"}}
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
+          <Avatar alt={`${userInfo.user.username}'s Profile`}
+          src={userInfo.user.image}
+          sx={{ width: 40, height: 40, margin: "0 auto" }}></Avatar>
         }
-        title={blog?.title}
+        title={blog?.title.substring(0,23)+"..."}
         subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
       />
       <CardMedia

@@ -20,7 +20,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const Published=() =>{  
   const { myBlog } = useBlogCall()
   const { del } = useBlogCall()
-
+  const { userInfo } = useSelector((state) => state.auth)
   const handleClick = (blogId)=>{
     del(blogId)
   }
@@ -42,10 +42,12 @@ const Published=() =>{
      <Card style={shadow3} key={blog?._id} sx={[{ maxWidth: 258,margin:"9px",backgroundColor:"#eceff1",maxHeight:350}]}>
       <CardHeader sx={[{textAlign:"left"}]}
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"></Avatar>
+          <Avatar alt={`${userInfo.user.username}'s Profile`}
+          src={userInfo.user.image}
+          sx={{ width: 40, height: 40, margin: "0 auto" }}></Avatar>
         }
         
-        title={blog?.title.substring(0,23)}
+        title={blog?.title.substring(0,23)+"..."}
         subheader={blog?.publish_date.substring(0,10)+" / "+blog?.publish_date.substring(11,16) }
       />
       <CardMedia
