@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
     const {userInfo} = useSelector((state)=>state.auth)
-    console.log(userInfo);
+    // console.log(userInfo);
     const { logout } = useAuthCall()
   const navigate = useNavigate()
 
