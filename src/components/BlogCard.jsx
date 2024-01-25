@@ -57,7 +57,7 @@ const BlogCard=() =>{
     text-overflow:ellipsis;
 `;
   
-
+  
   return (
     <>
      {reversed?.map((blog)=>(
